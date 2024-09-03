@@ -89,4 +89,9 @@ let cos4 = function() {
 for (let i = 0; i < cos4(); i++) {
     console.log("i=" + i);
 }
-
+//7 wersja 
+let i2 = 0;
+while (i2 < 5){
+    i++;
+    console.log("i2=" + i2);
+}
