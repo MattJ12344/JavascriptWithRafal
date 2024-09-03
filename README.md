@@ -12,3 +12,7 @@ Upewnij się, że plik się w ogóle pojawił na zielono
 5. Wciśnij 'Commit and Push...' 
 6. W nowym oknie wciśnij push.
 7. Upewnić się, że zmiany są na GitHub
+
+
+Zmiana nazwy pliku: Shift + F6;
+Historia Gita: Alt + 9;
