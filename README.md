@@ -9,4 +9,5 @@ na zielono ).
 3.  Commit & push : Ctrl + K -> wyskoczy pop-up
 Upewnij się, że plik się w ogóle pojawił na zielono
 4. Wpisz sensowny message
-5. Wciśnij 'Commit and Push'
+5. Wciśnij 'Commit and Push...' 
+6. W nowym oknie wciśnij push.
