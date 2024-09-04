@@ -77,6 +77,28 @@ for (let i = 0; i < lol.cos2(); i++) {
     console.log("i=" + i);
 }
 
+i = 0; 0 < 5; i++=1
+cos4()
+i=0;
+
+1 < 5; i++=2
+cos4()
+i=1;
+
+2 < 5; i++=3
+cos4()
+i=2;
+
+3 < 5; i++=4
+cos4()
+i=3;
+
+4 < 5; i++=5
+cos4()
+i=4;
+
+5 < 5; i++=6
+cos4();
 console.log('\n');
 console.log('========================');
 console.log('\n');
