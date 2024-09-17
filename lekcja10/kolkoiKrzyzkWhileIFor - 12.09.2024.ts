@@ -28,7 +28,7 @@ for (let k = 0; k < tablica.length; k++) {
 		}
 	}
 }
-while (wygrana) {
+while (wygrana =) {
 	if (tura >= 5) {
 		for (let i = 0; i < 8; i++) {
 
