@@ -111,19 +111,19 @@ while (true) {
 		let x: number;
 		let y: number;
 
-		if (numerTury < 9) {
-			const ruch = losujWolnePole();
-			x = ruch[0];
-			y = ruch[1];
 
-			if (czyRuchZrobiony(x, y)) {
-				console.error("Koordynaty (" + x + "," + y + ") były już użyte. Wybierz inne.");
-				continue;
-			}
+		const ruch = losujWolnePole();
+		x = ruch[0];
+		y = ruch[1];
 
-			dodajRuch(x, y);
-			console.log("Wybrane koordynaty: x=" + x + ", y=" + y);
+		if (czyRuchZrobiony(x, y)) {
+            console.error("Koordynaty (" + x + "," + y + ") były już użyte. Wybierz inne.");
+			continue;
 		}
+
+		dodajRuch(x, y);
+		console.log("Wybrane koordynaty: x=" + x + ", y=" + y);
+
 
 		if (tablica[x][y] !== '') {
 			console.error("Błąd: Pola (" + x + "," + y + ") jest zajęte. Wybierz inne");
