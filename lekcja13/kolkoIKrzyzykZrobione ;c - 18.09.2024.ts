@@ -34,19 +34,19 @@ let poprzednieRuchy: number[][] = [];
 const generujWzoryWygranej = (): number[][][] => {
 	let wzoryWygranej: number[][][] = [];
 
-
+	
 	for (let i = 0; i < 3; i++) {
 		let wiersz: number[][] = [[i, 0], [i, 1], [i, 2]];
 		wzoryWygranej.push(wiersz);
 	}
 
-
+	
 	for (let i = 0; i < 3; i++) {
 		let kolumna: number[][] = [[0, i], [1, i], [2, i]];
 		wzoryWygranej.push(kolumna);
 	}
 
-
+	
 	let przekatna1: number[][] = [[0, 0], [1, 1], [2, 2]];
 	let przekatna2: number[][] = [[0, 2], [1, 1], [2, 0]];
 	wzoryWygranej.push(przekatna1);
@@ -111,18 +111,19 @@ while (true) {
 		let x: number;
 		let y: number;
 
-		const ruch = losujWolnePole();
-		x = ruch[0];
-		y = ruch[1];
+		if (numerTury < 9) {
+			const ruch = losujWolnePole();
+			x = ruch[0];
+			y = ruch[1];
 
-		if (czyRuchZrobiony(x, y)) {
+			if (czyRuchZrobiony(x, y)) {
 				console.error("Koordynaty (" + x + "," + y + ") były już użyte. Wybierz inne.");
 				continue;
-		}
+			}
 
 			dodajRuch(x, y);
 			console.log("Wybrane koordynaty: x=" + x + ", y=" + y);
-
+		}
 
 		if (tablica[x][y] !== '') {
 			console.error("Błąd: Pola (" + x + "," + y + ") jest zajęte. Wybierz inne");
