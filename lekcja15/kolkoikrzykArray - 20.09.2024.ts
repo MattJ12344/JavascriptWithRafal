@@ -19,7 +19,7 @@ class KolkoIKrzyzyk {
 		this.numerTury = 0;
 	}
 
-	// Tworzenie pustej planszy na podstawie wymiaru gry
+	
 	resetTablicy(): string[][] {
 		let plansza: string[][] = [];
 		for (let i = 0; i < this.wymiarGry; i++) {
@@ -28,11 +28,11 @@ class KolkoIKrzyzyk {
 		return plansza;
 	}
 
-	// Generowanie wzorów wygranej dla dowolnego wymiaru gry
+	
 	generujWzoryWygranej(): number[][][] {
 		let wzoryWygranej: number[][][] = [];
 
-		// Wiersze i kolumny
+		
 		for (let i = 0; i < this.wymiarGry; i++) {
 			let wiersz: number[][] = [];
 			let kolumna: number[][] = [];
@@ -44,7 +44,6 @@ class KolkoIKrzyzyk {
 			wzoryWygranej.push(kolumna);
 		}
 
-		// Przekątne
 		let przekatna1: number[][] = [];
 		let przekatna2: number[][] = [];
 		for (let i = 0; i < this.wymiarGry; i++) {
@@ -57,17 +56,15 @@ class KolkoIKrzyzyk {
 		return wzoryWygranej;
 	}
 
-	// Sprawdzanie, czy dane pole jest puste
 	czyMoznaWykonacRuch(x: number, y: number): boolean {
 		return this.plansza[x][y] === '';
 	}
 
-	// Dodawanie ruchu do planszy
+	
 	dodajRuch(x: number, y: number, gracz: string) {
 		this.plansza[x][y] = gracz;
 	}
 
-	// Losowanie wolnego pola
 	losujWolnePole(): [number, number] {
 		let x: number, y: number;
 		do {
@@ -77,7 +74,7 @@ class KolkoIKrzyzyk {
 		return [x, y];
 	}
 
-	// Sprawdzanie, czy gracz wygrał
+	
 	sprawdzWygrana() {
 		for (let i = 0; i < this.wzoryWygranej.length; i++) {
 			this.wygranaX = this.wzoryWygranej[i].every(
@@ -93,14 +90,13 @@ class KolkoIKrzyzyk {
 		}
 	}
 
-	// Wyświetlanie planszy
 	pokazPlansze() {
 		this.plansza.forEach(wiersz => console.log(wiersz));
 	}
 }
 
-// Główna logika gry
-let wymiarGry: number = 3;  // Możesz zmienić wymiar gry tutaj
+
+let wymiarGry: number = 3;  
 let iloscGier: number = 0;
 
 while (iloscGier < 5) {
