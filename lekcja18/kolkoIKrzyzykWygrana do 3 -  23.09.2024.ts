@@ -160,6 +160,8 @@ while (iloscGier < 5) {
 
 	iloscGier++;
 
+	console.log(`Wynik: ${wygranaX}:${wygranaO}`);
+
 	if (wygranaX === 3) {
 		console.log(`Gracz ${gra.firstPlayer} wygrał 3 razy!`);
 	} else if (wygranaO === 3) {
