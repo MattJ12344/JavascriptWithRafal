@@ -15,7 +15,7 @@
 class KolkoIKrzyzyk {
 	firstPlayer: string;
 	secondPlayer: string;
-	plansza: string[][];
+	plansza: string[][][];
 	wzoryWygranej: number[][][];
 	wygranaX: boolean;
 	wygranaO: boolean;
@@ -33,65 +33,99 @@ class KolkoIKrzyzyk {
 		this.numerTury = 0;
 	}
 
-	resetTablicy(): string[][] {
-		let plansza: string[][] = [];
-		for (let i = 0; i < this.wymiarGry; i++) {
-			plansza.push(Array(this.wymiarGry).fill(' '));
+	resetTablicy(): string[][][] {
+		let plansza: string[][][] = [];
+		for (let z = 0; z < this.wymiarGry; z++) {
+
+			let poziom: string[][] = [];
+
+			for (let i = 0; i < this.wymiarGry; i++) {
+				poziom.push(Array(this.wymiarGry).fill(' '));
+			}
+			plansza.push(poziom);
 		}
 		return plansza;
 	}
 
 	generujWzoryWygranej(): number[][][] {
 		let wzoryWygranej: number[][][] = [];
-		for (let i = 0; i < this.wymiarGry; i++) {
-			let wiersz: number[][] = [];
-			let kolumna: number[][] = [];
-			for (let j = 0; j < this.wymiarGry; j++) {
-				wiersz.push([i, j]);
-				kolumna.push([j, i]);
+
+		for (let z = 0; z < this.wymiarGry; z++) {
+			for (let i = 0; i < this.wymiarGry; i++) {
+				let wiersz: number[][] = [];
+				let kolumna: number[][] = [];
+				for (let j = 0; j < this.wymiarGry; j++) {
+					wiersz.push([z, i, j]);
+					kolumna.push([z, j, i]);
+				}
+				wzoryWygranej.push(wiersz);
+				wzoryWygranej.push(kolumna);
 			}
-			wzoryWygranej.push(wiersz);
-			wzoryWygranej.push(kolumna);
 		}
 
+		for (let z = 0; z < this.wymiarGry; z++) {
+			let przekatna1: number[][] = [];
+			let przekatna2: number[][] = [];
+			for (let i = 0; i < this.wymiarGry; i++) {
+				przekatna1.push([z, i, i]);
+				przekatna2.push([z, i, this.wymiarGry - 1 - i]);
+			}
+			wzoryWygranej.push(przekatna1);
+			wzoryWygranej.push(przekatna2);
+		}
 
-		let przekatna1: number[][] = [];
-		let przekatna2: number[][] = [];
 		for (let i = 0; i < this.wymiarGry; i++) {
-			przekatna1.push([i, i]);
-			przekatna2.push([i, this.wymiarGry - 1 - i]);
+			for (let j = 0; j < this.wymiarGry; j++) {
+				let wierszZ: number[][] = [];
+				for (let z = 0; z < this.wymiarGry; z++) {
+					wierszZ.push([z, i, j]);
+				}
+				wzoryWygranej.push(wierszZ);
+			}
 		}
-		wzoryWygranej.push(przekatna1);
-		wzoryWygranej.push(przekatna2);
+
+		let przekatna3D_1: number[][] = [];
+		let przekatna3D_2: number[][] = [];
+		let przekatna3D_3: number[][] = [];
+		let przekatna3D_4: number[][] = [];
+
+		for (let i = 0; i < this.wymiarGry; i++) {
+			przekatna3D_1.push([i, i, i]);
+			przekatna3D_2.push([i, i, this.wymiarGry - 1 - i]);
+			przekatna3D_3.push([i, this.wymiarGry - 1 - i, i]);
+			przekatna3D_4.push([i, this.wymiarGry - 1 - i, this.wymiarGry - 1 - i]);
+		}
+
+		wzoryWygranej.push(przekatna3D_1);
+		wzoryWygranej.push(przekatna3D_2);
+		wzoryWygranej.push(przekatna3D_3);
+		wzoryWygranej.push(przekatna3D_4);
 
 		return wzoryWygranej;
 	}
 
-	czyMoznaWykonacRuch(x: number, y: number): boolean {
-		return this.plansza[x][y] === ' ';
+	czyMoznaWykonacRuch(x: number, y: number, z: number): boolean {
+		return this.plansza[z][x][y] === ' ';
 	}
 
-	dodajRuch(x: number, y: number, gracz: string) {
-		this.plansza[x][y] = gracz;
+	dodajRuch(x: number, y: number, z: number, gracz: string) {
+		this.plansza[z][x][y] = gracz;
 	}
 
-	losujWolnePole(): [number, number] {
-		let x: number, y: number;
+	losujWolnePole(): [number, number, number] {
+		let x: number, y: number, z: number;
 		do {
 			x = Math.floor(Math.random() * this.wymiarGry);
 			y = Math.floor(Math.random() * this.wymiarGry);
-		} while (!this.czyMoznaWykonacRuch(x, y));
-		return [x, y];
+			z = Math.floor(Math.random() * this.wymiarGry);
+		} while (!this.czyMoznaWykonacRuch(x, y, z));
+		return [x, y, z];
 	}
 
 	sprawdzWygrana() {
-		for (let i = 0; i < this.wzoryWygranej.length; i++) {
-			this.wygranaX = this.wzoryWygranej[i].every(
-				([x, y]) => this.plansza[x][y] === this.firstPlayer
-			);
-			this.wygranaO = this.wzoryWygranej[i].every(
-				([x, y]) => this.plansza[x][y] === this.secondPlayer
-			);
+		for (let wzor of this.wzoryWygranej) {
+			this.wygranaX = wzor.every(([z, x, y]) => this.plansza[z][x][y] === this.firstPlayer);
+			this.wygranaO = wzor.every(([z, x, y]) => this.plansza[z][x][y] === this.secondPlayer);
 
 			if (this.wygranaX || this.wygranaO) {
 				break;
@@ -100,22 +134,29 @@ class KolkoIKrzyzyk {
 	}
 
 	pokazPlanszeLadnie() {
-		this.plansza.forEach(wiersz => console.log(wiersz));
+		for (let z = 0; z < this.wymiarGry; z++) {
+			console.log(`Poziom ${z}:`);
+			this.plansza[z].forEach(wiersz => console.log(wiersz));
+
+		}
 	}
 
 
 }
 
 
-let wymiarGry: number = 5;
+let wymiarGry: number = 4;
 let iloscGier: number = 0;
+let wygranaX: number = 0;
+let wygranaO: number = 0;
 
-while (iloscGier < 5) {
+
+while (iloscGier < 5 && wygranaX < 3 && wygranaO < 3) {
 	console.log("\nNowa gra\n");
 
 	const gra = new KolkoIKrzyzyk(wymiarGry);
 
-	while (!gra.wygranaO && !gra.wygranaX && gra.numerTury < wymiarGry * wymiarGry) {
+	while (!gra.wygranaO && !gra.wygranaX && gra.numerTury < wymiarGry * wymiarGry * wymiarGry) {
 		console.log(`\nTura: ${gra.numerTury + 1}`);
 		gra.pokazPlanszeLadnie();
 
@@ -123,11 +164,12 @@ while (iloscGier < 5) {
 		let ruch = gra.losujWolnePole();
 		let x = ruch[0];
 		let y = ruch[1];
+		let z = ruch[2];
 
 
 		const currentPlayer = gra.numerTury % 2 === 0 ? gra.secondPlayer : gra.firstPlayer;
-		gra.dodajRuch(x, y, currentPlayer);
-		console.log(`Gracz ${currentPlayer} zaznaczył pole (${x}, ${y})`);
+		gra.dodajRuch(x, y, z, currentPlayer);
+		console.log(`Gracz ${currentPlayer} zaznaczył pole (${x}, ${y}, ${z})`);
 
 
 		if (gra.numerTury >= (2 * wymiarGry - 1)) {
@@ -144,15 +186,26 @@ while (iloscGier < 5) {
 	if (gra.wygranaX) {
 		console.log("WIN=" + gra.firstPlayer);
 		console.log("LOSE=" + gra.secondPlayer);
+		wygranaX++;
 	} else if (gra.wygranaO) {
 		console.log("WIN=" + gra.secondPlayer);
 		console.log("LOSE=" + gra.firstPlayer);
-	} else if (gra.numerTury >= wymiarGry * wymiarGry) {
+		wygranaO++;
+	} else if (gra.numerTury >= wymiarGry * wymiarGry * wymiarGry) {
 		console.log("Remis. Zacznij od nowa");
 	}
-
 	iloscGier++;
+
+	console.log(`Wynik: ${wygranaX}:${wygranaO}`);
+
 }
+
+if (wygranaX === 3) {
+	console.log("Gracz X wygrał grę z wynikiem 3:" + wygranaO);
+} else if (wygranaO === 3) {
+	console.log("Gracz X wygrał grę z wynikiem 3:" + wygranaX)
+}
+
 
 // tworze gracza
 // x|o|x

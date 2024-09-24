@@ -36,7 +36,7 @@ class KolkoIKrzyzyk {
 	resetTablicy(): string[][] {
 		let plansza: string[][] = [];
 		for (let i = 0; i < this.wymiarGry; i++) {
-			plansza.push(Array(this.wymiarGry).fill(''));
+			plansza.push(Array(this.wymiarGry).fill(' '));
 		}
 		return plansza;
 	}
@@ -68,7 +68,7 @@ class KolkoIKrzyzyk {
 	}
 
 	czyMoznaWykonacRuch(x: number, y: number): boolean {
-		return this.plansza[x][y] === '';
+		return this.plansza[x][y] === ' ';
 	}
 
 	dodajRuch(x: number, y: number, gracz: string) {
@@ -162,13 +162,14 @@ while (iloscGier < 5) {
 
 	console.log(`Wynik: ${wygranaX}:${wygranaO}`);
 
-	if (wygranaX === 3) {
-		console.log(`Gracz ${gra.firstPlayer} wygrał 3 razy!`);
-	} else if (wygranaO === 3) {
-		console.log(`Gracz ${gra.secondPlayer} wygrał 3 razy!`);
-	}
-
 }
+
+if (wygranaX === 3) {
+	console.log("Gracz X wygrał grę z wynikiem 3:" + wygranaO);
+} else if (wygranaO === 3) {
+	console.log("Gracz X wygrał grę z wynikiem 3:" + wygranaX)
+}
+
 
 // tworze gracza
 // x|o|x

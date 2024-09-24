@@ -36,7 +36,7 @@ class KolkoIKrzyzyk {
 	resetTablicy(): string[][] {
 		let plansza: string[][] = [];
 		for (let i = 0; i < this.wymiarGry; i++) {
-			plansza.push(Array(this.wymiarGry).fill(''));
+			plansza.push(Array(this.wymiarGry).fill(' '));
 		}
 		return plansza;
 	}
@@ -101,8 +101,8 @@ class KolkoIKrzyzyk {
 
 	pokazPlanszeLadnie() {
 		for (let i = 0; i < this.plansza.length; i++) {
-			console.log("[" + this.plansza[i]
-				.map(pole => (pole === '' ? "' '" : `${pole}`).padEnd(4))
+			console.log("[ " + this.plansza[i]
+				.map(pole => (pole === ' ' ? "' '" : `${pole}`).padEnd(2))
 				.join(', ') + "]");
 		}
 	}
