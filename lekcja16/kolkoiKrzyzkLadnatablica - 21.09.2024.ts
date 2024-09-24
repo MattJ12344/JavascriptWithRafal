@@ -1,3 +1,4 @@
+
 // if else
 // number, string, boolean, array
 // while, for
@@ -10,7 +11,7 @@
 
 
 // 1. Ladniej wyswietlaj tablice w konsoli
-// 
+//
 
 class KolkoIKrzyzyk {
 	firstPlayer: string;
@@ -269,5 +270,3 @@ while (iloscGier < 5) {
 
 // Do zrobienia gracz O wygrał grę i konsola pokazuje kto wygrał
 //
-
-
