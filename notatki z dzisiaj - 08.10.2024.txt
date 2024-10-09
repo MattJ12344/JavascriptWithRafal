@@ -1,0 +1,16 @@
+# 1. nie pisać tego jabłko(zmiennej) bez żadnego elementów  nie może być pusta
+# 2. nie przyrównywać dwóch typów do siebie NIE! :
+# * tablice do numeru 
+# tablica - string
+# string - boolean
+# string - numer
+# numer - boolean
+# tablica -boolean
+# 3. można zrobić, jesli coś sie sumuju lub === tylko jeśli jest jakaś wartość lub coś podobnego do tych typów
+# 4.15 - 30 sekund na myślenie w głowie, ale jeśli nic nie wychodzi w myślach to zapisać w punktach czy rozpisać sobie ważne punkty lub co chce zrobić w działaniu
+# 5. if ma zawsze sprawdzać boolean a nie sprawdzać, że tablica jako true jeśli jest pełna najlepiej dać len(tablica) > 0
+# 6. BEZ FANCY RZECZY
+# 7. DAWAĆ WSZĘDZIE TYPY DO TWORZONYCH ZMIENNYCH I PÓL(CONSTRUCTOR) ALE TEŻ DO PARAMETRÓW I DO ZWARACANYCH WARTOŚCI
+
+# OD DZISIAJ KOMPLETNY ZAKAZ UŻYWANIA FANCE RZECZY
+# FUNKCJE MOGĄ ZWRACAĆ TYLKO 1 RZECZ, ALBO NIE ZWRACAĆ NIC - ARRAY JEST WYJĄTKIEM I LICZYMY JAKO JEDNA RZECZ
