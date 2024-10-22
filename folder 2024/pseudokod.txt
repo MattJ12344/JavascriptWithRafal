@@ -1,0 +1,9 @@
+potega ← 1
+m ← 0
+dopóki n>0 wykonuj
+    cyfra ← n mod 10
+    jeżeli cyfra mod 2 = 1
+        m ← m + potega * cyfra
+        potega ← potega * 10
+    n ← n div 10
+zwróć m
