@@ -1,0 +1,7 @@
+zatrudniam a 5
+zatrudniam b 6
+zwalniam a
+zatrudniam c 1
+zwalniam c
+zatrudniam d 5
+zwalniam b

@@ -1,0 +1,44 @@
+let firstPlayer = "X";
+
+
+let myArray = [
+[0, 1, 2, 3], 
+[4, 5, 6, 7],
+[8, 9]
+];
+
+console.log(myArray);
+console.log(myArray[0]);
+console.log(myArray[0][2]);
+console.log(myArray[2][1]);
+myArray[2] = 35;
+
+console.log(myArray);
+
+
+console.log("[X][O][X]");
+console.log("[O][X][O]");
+console.log("[X][O][O]");
+// tworze gracza
+// x|o|x
+// o|x|o
+// x|o|o
+
+//1.gracze x lub o, że x zaczyna pierwszy gracz, który ma x
+//2.kółka i krzyżyków, nie mogą się na siebie nakładać, nie mają wyznaczonych miejsc
+//3.różne wygrane, jak x zacznaczył w pole gracz to potem kółko zazncza jedno pole a potem z nowu x itd.
+//4.Ogłoszenie zwycięscy.
+
+//1.
+// [][][]
+// [][][]
+// [][][]
+
+//2.
+//[][][]
+//[][X][]
+//[][][]
+
+//3.
+//[][][]
+//

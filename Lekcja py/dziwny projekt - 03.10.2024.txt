@@ -1,0 +1,56 @@
+import random
+
+class SlotMachine:
+    
+    def __init__(self):
+        self.licznik = 0
+    
+    def spin(self):
+        spin_result = [random.randint(5, 20) for _ in range(5)]
+        self.licznik += 1
+        
+        if self.licznik % 5 == 0 :
+           zmienna = random.randint(5, 20)
+           spin_result = [zmienna, zmienna, zmienna, zmienna, zmienna]
+           return spin_result
+        else:
+            return spin_result
+		
+gra = SlotMachine()
+print("Spin Result1:", gra.spin())
+print("Spin Result2:", gra.spin())
+print("Spin Result3:", gra.spin())
+print("Spin Result4:", gra.spin())
+print("Spin Result5:", gra.spin())
+
+
+# OD DZISIAJ KOMPLETNY ZAKAZ UŻYWANIA FANCE RZECZY
+# FUNKCJE MOGĄ ZWRACAĆ TYLKO 1 RZECZ, ALBO NIE ZWRACAĆ NIC - ARRAY JEST WYJĄTKIEM I LICZYMY JAKO JEDNA RZECZ
+
+
+# wyświetlić pięć liczb losowych
+# szansa na wygenerowanie tych samych 5 liczb wynosi 20%
+# za 5 jest wygrana, za 7 jest przegrana, za 10 przegrana, 
+
+# [5, 13, 17, 19, 8] 
+# [6, 13, 17, 19, 8]
+# [5, 14, 17, 19, 8]
+# [5, 13, 19, 20, 8]
+# [5, 5, 5, 5, 5]       wygrana
+
+
+
+# [5, 13, 7, 19, 8] 
+# [6, 13, 9, 19, 8]
+# [5, 14, 15, 19, 8]
+# [5, 13, 5, 20, 8]
+# [7, 7, 7, 7, 7]       wygrana
+
+
+
+
+# [10, 13, 7, 19, 8] 
+# [20, 13, 9, 19, 8]
+# [18, 14, 15, 19, 8]
+# [7, 19, 5, 20, 8]
+# [20, 20, 20, 20, 20]       wygrana
