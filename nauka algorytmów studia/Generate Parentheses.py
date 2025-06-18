@@ -1,22 +1,23 @@
 class Solution(object):
-    def generateParenthesis(self, n):
+    def generateParenthesis(self, n: int) -> list[str]:
         """
         :type n: int
         :rtype: List[str]
         """
-        res = []
+        combinations: list[str] = []
 
-        def dfs(openP, closeP, s):
-            if openP == closeP and openP + closeP == n * 2:
-                res.append(s)
+        def dfs(openCount:int, closeCount: int, formatString: str) -> None:
+            
+            if openCount == closeCount and openCount + closeCount == n * 2:
+                combinations.append(formatString)
                 return
             
-            if openP < n:
-                dfs(openP + 1, closeP, s + "(")
+            if openCount < n:
+                dfs(openCount + 1, closeCount, formatString + "(")
             
-            if closeP < openP:
-                dfs(openP, closeP + 1, s + ")")
+            if closeCount < openCount:
+                dfs(openCount, closeCount + 1, formatString + ")")
 
         dfs(0, 0, "")
 
-        return res
+        return combinations

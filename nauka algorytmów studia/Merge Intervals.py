@@ -1,21 +1,25 @@
 class Solution(object):
-    def merge(self, intervals):
+    def merge(self, intervals: list[list[int]]) -> list[list[int]]:
         """
         :type intervals: List[List[int]]
         :rtype: List[List[int]]
         """
-        merged = []
+        mergedIntervals: list[list[int]] = []
         intervals.sort(key=lambda x: x[0])
 
-        prev = intervals[0]
+        previousIntervals: list[int] = intervals[0]
 
         for interval in intervals[1:]:
-            if interval[0] <= prev[1]:
-                prev[1] = max(prev[1], interval[1])
+            
+            if interval[0] <= previousIntervals[1]:
+                previousIntervals[1] = max(previousIntervals[1], interval[1])
+                
             else:
-                merged.append(prev)
-                prev = interval
+                mergedIntervals.append(previousIntervals)
+                previousIntervals = interval
+                
         
-        merged.append(prev)
+        mergedIntervals.append(previousIntervals)
 
-        return merged
+
+        return mergedIntervals

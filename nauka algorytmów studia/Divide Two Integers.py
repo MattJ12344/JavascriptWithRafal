@@ -1,5 +1,5 @@
 class Solution(object):
-    def divide(self, dividend, divisor):
+    def divide(self, dividend:int, divisor:int) -> int:
         """
         :type dividend: int
         :type divisor: int
@@ -15,16 +15,17 @@ class Solution(object):
         
         sign = -1 if (dividend < 0) ^ (divisor < 0) else 1
         
-        n, d = abs(dividend), abs(divisor)
-        ans = 0
+        n, d: int = abs(dividend), abs(divisor)
+        result:int = 0
 
         while n >= d:
-            p = 0
+            p:int = 0
+            
             while n >= (d << p):
                 p += 1
             
             p -= 1
             n -= (d << p)
-            ans += (1 << p)
+            result += (1 << p)
 
-        return min(max(sign * ans, -2**31), 2**31 - 1)
+        return min(max(sign * result, -2**31), 2**31 - 1)

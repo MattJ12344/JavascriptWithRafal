@@ -1,5 +1,5 @@
 class Solution(object):
-    def isPowerOfThree(self, n):
+    def isPowerOfThree(self, n: int) -> bool:
         """
         :type n: int
         :rtype: bool

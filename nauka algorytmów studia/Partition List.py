@@ -1,17 +1,21 @@
 class Solution(object):
-    def partition(self, head, x):
+    def partition(self, head: Optional[ListNode], x: int) -> Optional[ListNode]:
         """
         :type head: Optional[ListNode]
         :type x: int
         :rtype: Optional[ListNode]
         """
-        slist, blist = ListNode(), ListNode()
-        small, big = slist, blist
+        slist: Optional[ListNode] = ListNode()
+        blist: Optional[ListNode] = ListNode()
+        small: Optional[ListNode]= slist
+        big: Optional[ListNode] = blist
 
         while head:
+            
             if head.val < x:
                 small.next = head
                 small = small.next
+                
             else:
                 big.next = head
                 big = big.next

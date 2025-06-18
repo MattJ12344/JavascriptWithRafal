@@ -4,18 +4,18 @@
 #         self.val = val
 #         self.next = next
 class Solution(object):
-    def removeElements(self, head, val):
+    def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
         """
         :type head: Optional[ListNode]
         :type val: int
         :rtype: Optional[ListNode]
         """
-        cos = ListNode(0, head)
-        lista = cos
+        nodeHead: ListNode = ListNode(0, head)
+        currentNode: ListNode = nodeHead
 
-        while lista:
-            while lista.next and lista.next.val == val:
-                lista.next = lista.next.next
-            lista = lista.next
+        while currentNode:
+            while currentNode.next and currentNode.next.val == val:
+                currentNode.next = currentNode.next.next
+            currentNode = currentNode.next
         
-        return cos.next
+        return nodeHead.next

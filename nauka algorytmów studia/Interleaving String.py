@@ -1,26 +1,30 @@
 class Solution(object):
-    def isInterleave(self, s1, s2, s3):
+    def isInterleave(self, first: str, second: str, trird: str) -> bool:
         """
         :type s1: str
         :type s2: str
         :type s3: str
         :rtype: bool
         """
-        m, n = len(s1), len(s2)
+        firstLength: int= len(first), 
+        secondLength: int= len(second)
 
-        if m + n != len(s3):
+        if firstLength + secondLength != len(trird):
             return False
 
-        dp = [False] * (n + 1)
-        dp[0] = True
+        dynamicProgramming: list[bool] = [False] * (secondLength + 1)
+        dynamicProgramming[0] = True
 
-        for j in range(1, n + 1):
-            dp[j] = dp[j - 1] and s2[j - 1] == s3[j - 1]
+        for j in range(1, secondLength + 1):
+            dynamicProgramming[j] = dynamicProgramming[j - 1] and second[j - 1] == trird[j - 1]
 
-        for i in range(1, m + 1):
-            dp[0] = dp[0] and s1[i - 1] == s3[i - 1]
-            for j in range(1, n + 1):
-                dp[j] = (dp[j] and s1[i - 1] == s3[i + j - 1]) or \
-                        (dp[j - 1] and s2[j - 1] == s3[i + j - 1])
 
-        return dp[n]
+        for i in range(1, firstLength + 1):
+            dynamicProgramming[0] = dynamicProgramming[0] and first[i - 1] == trird[i - 1]
+            
+            for j in range(1, secondLength + 1):
+                dynamicProgramming[j] = (dynamicProgramming[j] and first[i - 1] == trird[i + j - 1]) or \
+                        (dynamicProgramming[j - 1] and second[j - 1] == trird[i + j - 1])
+                        
+
+        return dynamicProgramming[secondLength]

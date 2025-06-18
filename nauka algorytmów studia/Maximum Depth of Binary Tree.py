@@ -1,5 +1,5 @@
 class Solution(object):
-    def maxDepth(self, root):
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
         """
         :type root: Optional[TreeNode]
         :rtype: int

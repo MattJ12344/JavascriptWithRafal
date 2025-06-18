@@ -1,12 +1,14 @@
 class Solution(object):
-    def minDepth(self, root):
+    def minDepth(self, root: Optional[TreeNode]) -> int:
         """
         :type root: Optional[TreeNode]
         :rtype: int
         """
         if not root:
             return 0
+        
         queue = deque([(root, 1)])
+        
         while queue:
             node, depth = queue.popleft()
             if not node.left and not node.right:

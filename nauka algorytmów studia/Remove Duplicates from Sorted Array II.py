@@ -1,19 +1,24 @@
 class Solution(object):
-    def removeDuplicates(self, nums):
+    def removeDuplicates(self, numbers: list[int]) -> int :
         """
         :type nums: List[int]
         :rtype: int
         """
-        count = 0
-        current = 1
-        for i in range(1, len(nums)):
-            if nums[i] != nums[i - 1]:
+        count: int = 0
+        currentNumbers:int = 1
+        
+        for i in range(1, len(numbers)):
+            
+            if numbers[i] != numbers[i - 1]:
                 count = 0
-                nums[current] = nums[i]
-                current += 1
+                numbers[currentNumbers] = numbers[i]
+                currentNumbers += 1
+                
             else:
                 count += 1
                 if count <= 1:
-                    nums[current] = nums[i]
-                    current += 1
-        return current
+                    numbers[currentNumbers] = numbers[i]
+                    currentNumbers += 1
+                    
+                    
+        return currentNumbers

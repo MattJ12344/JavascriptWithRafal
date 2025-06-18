@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
-    def invertTree(self, root):
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         """
         :type root: Optional[TreeNode]
         :rtype: Optional[TreeNode]
@@ -13,9 +13,9 @@ class Solution(object):
         if not root:
             return root
 
-        temp = root.left
+        tempTree: Optional[TreeNode] = root.left
         root.left = root.right
-        root.right = temp
+        root.right = tempTree
 
         self.invertTree(root.left)
         self.invertTree(root.right)

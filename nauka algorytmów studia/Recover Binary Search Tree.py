@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
-    def recoverTree(self, root):
+    def recoverTree(self, root: Optional[TreeNode]) -> None:
         """
         :type root: Optional[TreeNode]
         :rtype: None Do not return anything, modify root in-place instead.
@@ -14,11 +14,13 @@ class Solution(object):
             if not root:    return
 
             inorderBST(root.left)
+            
             if self.prev and self.prev.val > root.val:
                 if not self.first:  self.first = self.prev
                 self.second = root
+                
             self.prev = root
-
+            
             inorderBST(root.right)
         
         

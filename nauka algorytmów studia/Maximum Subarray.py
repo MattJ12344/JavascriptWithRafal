@@ -1,17 +1,17 @@
 class Solution(object):
-    def maxSubArray(self, nums):
+    def maxSubArray(self, numbers:list[int]) -> int:
         """
         :type nums: List[int]
         :rtype: int
         """
-        res = nums[0]
-        total = 0
+        result:int = numbers[0]
+        total:int = 0
 
-        for n in nums:
+        for index in numbers:
             if total < 0:
                 total = 0
 
-            total += n
-            res = max(res, total)
+            total += index
+            result = max(result, total)
         
-        return res
+        return result

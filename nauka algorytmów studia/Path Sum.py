@@ -1,5 +1,5 @@
 class Solution(object):
-    def hasPathSum(self, root, targetSum):
+    def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
         """
         :type root: Optional[TreeNode]
         :type targetSum: int
@@ -11,7 +11,7 @@ class Solution(object):
         if not root.left and not root.right:
             return targetSum == root.val
         
-        left_sum = self.hasPathSum(root.left, targetSum - root.val)
-        right_sum = self.hasPathSum(root.right, targetSum - root.val)
+        leftSum: bool = self.hasPathSum(root.left, targetSum - root.val)
+        rightSum: bool = self.hasPathSum(root.right, targetSum - root.val)
         
-        return left_sum or right_sum
+        return leftSum or rightSum

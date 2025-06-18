@@ -1,5 +1,5 @@
 class Solution(object):
-    def deleteDuplicates(self, head):
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
         """
         :type head: Optional[ListNode]
         :rtype: Optional[ListNode]
@@ -7,22 +7,22 @@ class Solution(object):
         if not head or not head.next:
             return head
 
-        dummy = ListNode(0, head)
-        prev = dummy
-        current = head
+        nodeHead: ListNode = ListNode(0, head)
+        nodePrevious: ListNode = nodeHead
+        nodeCurrent: Optional[ListNode] = head
 
-        while current:
+        while nodeCurrent:
             is_duplicate = False
 
-            while current.next and current.val == current.next.val:
+            while nodeCurrent.next and nodeCurrent.val == nodeCurrent.next.val:
                 is_duplicate = True
-                current = current.next
+                nodeCurrent = nodeCurrent.next
 
             if is_duplicate:
-                prev.next = current.next
+                nodePrevious.next = nodeCurrent.next
             else:
-                prev = prev.next
+                nodePrevious = nodePrevious.next
 
-            current = current.next
+            nodeCurrent = nodeCurrent.next
 
-        return dummy.next
+        return nodeHead.next

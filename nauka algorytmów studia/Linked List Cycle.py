@@ -1,5 +1,5 @@
 class Solution(object):
-    def hasCycle(self, head):
+    def hasCycle(self, head:Optional[ListNode]) -> bool:
         """
         :type head: ListNode
         :rtype: bool
@@ -7,12 +7,14 @@ class Solution(object):
         if not head or not head.next:
             return False
 
-        slow = head
-        fast = head.next
+        slow: Optional[ListNode] = head
+        fast: Optional[ListNode] = head.next
 
         while slow != fast:
+            
             if not fast or not fast.next:
                 return False
+            
             slow = slow.next
             fast = fast.next.next
 

@@ -1,19 +1,19 @@
 class Solution(object):
-    def permute(self, nums):
+    def permute(self, numbers: list[int]) -> list[list[int]]:
         """
         :type nums: List[int]
         :rtype: List[List[int]]
         """
         def backtrack(start):
-            if start == len(nums):
-                res.append(nums[:])
+            if start == len(numbers):
+                result.append(numbers[:])
                 return
             
-            for i in range(start, len(nums)):
-                nums[start], nums[i] = nums[i], nums[start]
+            for i in range(start, len(numbers)):
+                numbers[start], numbers[i] = numbers[i], numbers[start]
                 backtrack(start + 1)
-                nums[start], nums[i] = nums[i], nums[start]
+                numbers[start], numbers[i] = numbers[i], numbers[start]
 
-        res = []
+        result: list[list[int]] = []
         backtrack(0)
-        return res
+        return result

@@ -1,5 +1,5 @@
 class Solution(object):
-    def rotateRight(self, head, k):
+    def rotateRight(self, head:Optional[ListNode], k:int) -> Optional[ListNode]:
         """
         :type head: Optional[ListNode]
         :type k: int
@@ -9,34 +9,38 @@ class Solution(object):
 
             return head
 
-        l=0
+        length: int = 0
 
-        curr=head
+        currentNode: Optional[ListNode] = head
 
-        while curr!=None:
+        while currentNode!=None:
 
-            l+=1
-            curr=curr.next
+            length+=1
+            currentNode=currentNode.next
 
-        k = k % l
+        k = k % length
+        
         if k == 0:
             return head
-        curr=head
-        for i in range(l-k-1):
+        
+        currentNode=head
+        
+        for i in range(length-k-1):
 
-            curr=curr.next
+            currentNode=currentNode.next
 
-        new_head=curr.next
-        curr.next=None
+        newHead=currentNode.next
+        
+        currentNode.next=None
 
 
-        tail=new_head
+        tailNode=newHead
 
-        while tail.next!=None:
-            tail=tail.next
+        while tailNode.next is not None:
+            tailNode=tailNode.next
 
         
-        tail.next=head
-        head=new_head
+        tailNode.next=head
+        head=newHead
 
         return head

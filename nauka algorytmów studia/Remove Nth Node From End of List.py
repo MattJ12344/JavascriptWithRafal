@@ -1,22 +1,22 @@
 class Solution(object):
-    def removeNthFromEnd(self, head, n):
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         """
         :type head: Optional[ListNode]
         :type n: int
         :rtype: Optional[ListNode]
         """
-        dummy = ListNode(0)
-        dummy.next = head
-        first = dummy
-        second = dummy
+        nodeHeed: ListNode = ListNode(0)
+        nodeHeed.next = head
+        leadPointer: ListNode = nodeHeed
+        nextPointer: ListNode = nodeHeed
 
         for _ in range(n + 1):
-            first = first.next
+            leadPointer = leadPointer.next
 
-        while first is not None:
-            first = first.next
-            second = second.next
+        while leadPointer is not None:
+            leadPointer = leadPointer.next
+            nextPointer = nextPointer.next
 
-        second.next = second.next.next
+        nextPointer.next = nextPointer.next.next
 
-        return dummy.next
+        return nodeHeed.next

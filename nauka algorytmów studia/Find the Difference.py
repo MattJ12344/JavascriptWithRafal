@@ -1,18 +1,20 @@
 class Solution(object):
-    def findTheDifference(self, s, t):
+    def findTheDifference(self, s:str, t:str) -> str:
         """
         :type s: str
         :type t: str
         :rtype: str
         """
-        count = {}
+        letterToCounter: dict[str, int]= {}
 
-        for c in t:
-            count[c] = count.get(c, 0) + 1
+        for letter in t:
+            letterToCounter[letter] = letterToCounter.get(letter, 0) + 1
 
-        for c in s:
-            count[c] -= 1
-            if count[c] == 0:
-                del count[c]
+        for letter in s:
+            
+            letterToCounter[letter] -= 1
+            
+            if letterToCounter[letter] == 0:
+                del letterToCounter[letter]
 
-        return list(count.keys())[0]
+        return list(letterToCounter.keys())[0]

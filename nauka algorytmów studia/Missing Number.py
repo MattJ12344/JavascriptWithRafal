@@ -1,10 +1,13 @@
 class Solution(object):
-    def missingNumber(self, nums):
+    def missingNumber(self, numbers: list[int]) -> int:
         """
         :type nums: List[int]
         :rtype: int
         """
-        n = len(nums)
-        expected_sum = n * (n + 1) // 2
-        actual_sum = sum(nums)
-        return expected_sum - actual_sum
+        count: int = len(numbers)
+        
+        expectedSum: int = count * (count + 1) // 2
+        
+        actualSum = sum(numbers)
+        
+        return expectedSum - actualSum
