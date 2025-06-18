@@ -1,9 +1,9 @@
 class Solution(object):
-    def addDigits(self, num):
+    def addDigits(self, number: int) -> int:
         """
         :type num: int
         :rtype: int
         """
-        if num == 0:
+        if number == 0:
             return 0
-        return 1 + (num - 1) % 9
+        return 1 + (number - 1) % 9

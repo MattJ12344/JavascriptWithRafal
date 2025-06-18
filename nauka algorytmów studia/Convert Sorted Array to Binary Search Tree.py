@@ -1,15 +1,16 @@
 class Solution(object):
-    def sortedArrayToBST(self, nums):
+    def sortedArrayToBST(self, numbers: list[int]) -> Optional[TreeNode]:
         """
         :type nums: List[int]
         :rtype: Optional[TreeNode]
         """
-        total_nums = len(nums)
-        if not total_nums:
+        totalNumbers:int = len(numbers)
+        if not totalNumbers:
             return None
 
-        mid_node = total_nums // 2
+        midNode:int = totalNumbers // 2
+        
         return TreeNode(
-            nums[mid_node], 
-            self.sortedArrayToBST(nums[:mid_node]), self.sortedArrayToBST(nums[mid_node + 1 :])
+            numbers[midNode], 
+            self.sortedArrayToBST(numbers[:midNode]), self.sortedArrayToBST(numbers[midNode + 1 :])
         )

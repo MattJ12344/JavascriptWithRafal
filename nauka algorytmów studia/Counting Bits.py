@@ -1,16 +1,16 @@
 class Solution(object):
-    def countBits(self, n):
+    def countBits(self, n:int)-> list[int]:
         """
         :type n: int
         :rtype: List[int]
         """
-        dp = [0] * (n + 1)
-        sub = 1
+        bit_counts:list[int] = [0] * (n + 1)
+        highestPowerOfTwo:int = 1
 
         for i in range(1, n + 1):
-            if sub * 2 == i:
-                sub = i
+            if highestPowerOfTwo * 2 == i:
+                highestPowerOfTwo = i
             
-            dp[i] = dp[i - sub] + 1
+            bit_counts[i] = bit_counts[i - highestPowerOfTwo] + 1
         
-        return dp
+        return bit_counts

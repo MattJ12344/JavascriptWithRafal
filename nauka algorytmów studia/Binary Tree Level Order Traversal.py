@@ -5,29 +5,26 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
-    def levelOrder(self, root):
-        """
-        :type root: Optional[TreeNode]
-        :rtype: List[List[int]]
-        """
-        result = []
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        result: List[List[int]] = []
+
         if not root:
             return result
         
-        cos = collections.deque()
-        cos.append(root)
+        queue= collectios.deque()
+        queue.append(root)
+    
+        while queue:
+            same_level: List[int] = []
 
-        while cos:
-            same_level = []
-
-            for _ in range(len(cos)):
-                node = cos.popleft()
+            for _ in range(len(queue)):
+                node = queue.popleft()
                 same_level.append(node.val)
 
                 if node.left:
-                    cos.append(node.left)
+                    queue.append(node.left)
                 if node.right:
-                    cos.append(node.right)
+                    queue.append(node.right)
             
             result.append(same_level)
         

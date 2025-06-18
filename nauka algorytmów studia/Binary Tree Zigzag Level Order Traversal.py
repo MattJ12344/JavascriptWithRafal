@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
-    def zigzagLevelOrder(self, root):
+    def zigzagLevelOrder(self, root: Optional[TreeNode]) -> list[list[int]]:
         """
         :type root: Optional[TreeNode]
         :rtype: List[List[int]]
@@ -13,17 +13,17 @@ class Solution(object):
         if not root:
             return []
 
-        result = []
-        queue = deque([root])
-        is_left_to_right = True
+        result:  list[list[int]]  = []
+        queue: list[TreeNode] = deque([root])
+        isLeftToRight: bool = True
 
         while queue:
             level_size = len(queue)
-            current_level = [0] * level_size
+            current_level:list[int] = [0] * level_size
 
             for i in range(level_size):
                 node = queue.popleft()
-                index = i if is_left_to_right else level_size - 1 - i
+                index = i if isLeftToRight else level_size - 1 - i
                 current_level[index] = node.val
 
                 if node.left:
@@ -32,4 +32,4 @@ class Solution(object):
                     queue.append(node.right)
 
             result.append(current_level)
-            is_left_to_right = not is_left_to_right
+            isLeftToRight = not isLeftToRight

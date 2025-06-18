@@ -8,7 +8,7 @@ class Node:
 """
 
 class Solution(object):
-    def copyRandomList(self, head):
+    def copyRandomList(self, head: Node) -> Node:
         """
         :type head: Node
         :rtype: Node
@@ -16,27 +16,27 @@ class Solution(object):
         if not head:
             return None
         
-        curr = head
-        while curr:
-            new_node = Node(curr.val, curr.next)
-            curr.next = new_node
-            curr = new_node.next
+        current: Node = head
+        while current:
+            new_node = Node(current.val, current.next)
+            current.next = new_node
+            current = new_node.next
             
-        curr = head
-        while curr:
-            if curr.random:
-                curr.next.random = curr.random.next
-            curr = curr.next.next
+        current = head
+        while current:
+            if current.random:
+                current.next.random = current.random.next
+            current = current.next.next
         
-        old_head = head
-        new_head = head.next
-        curr_old = old_head
-        curr_new = new_head
+        orginalHead:Node = head
+        copiedHead:Node = head.next
+        currentOrginal:Node = orginalHead
+        currentCopied:Node = copiedHead
         
-        while curr_old:
-            curr_old.next = curr_old.next.next
-            curr_new.next = curr_new.next.next if curr_new.next else None
-            curr_old = curr_old.next
-            curr_new = curr_new.next
+        while currentOrginal:
+            currentOrginal.next = currentOrginal.next.next
+            currentCopied.next = currentCopied.next.next if currentCopied.next else None
+            currentOrginal = currentOrginal.next
+            currentCopied = currentCopied.next
             
-        return new_head
+        return copiedHead

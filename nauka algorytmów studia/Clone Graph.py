@@ -15,18 +15,18 @@ class Solution(object):
         if not node:
             return None
         
-        cloned = {}
+        cloned: dict[str, int] = {}
         stack = [node]
         cloned[node] = Node(node.val)
         
         while stack:
-            curr = stack.pop()
+            currentGraph = stack.pop()
             
-            for neighbor in curr.neighbors:
+            for neighbor in currentGraph.neighbors:
                 if neighbor not in cloned:
                     cloned[neighbor] = Node(neighbor.val)
                     stack.append(neighbor)
                 
-                cloned[curr].neighbors.append(cloned[neighbor])
+                cloned[currentGraph].neighbors.append(cloned[neighbor])
         
         return cloned[node]

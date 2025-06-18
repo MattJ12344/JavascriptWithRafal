@@ -1,16 +1,21 @@
 class Solution(object):
-    def toHex(self, num):
+    def toHex(self, number:int) -> str:
         """
         :type num: int
         :rtype: str
         """
-        if num == 0:
+        if number == 0:
             return "0"
-        if num < 0:
-            num += 2**32
-        h = "0123456789abcdef"
-        r = []
-        while num:
-            r.append(h[num & 15])
-            num //= 16
+        
+        if number < 0:
+            number += 2**32
+            
+        h:str = "0123456789abcdef"
+        
+        r:list[str] = []
+        
+        while number:
+            r.append(h[number & 15])
+            number //= 16
+            
         return "".join(r[::-1])

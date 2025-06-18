@@ -1,20 +1,25 @@
 class Solution(object):
-    def longestPalindrome(self, s):
+    def longestPalindrome(self, s: str) -> int:
+        
         """
         :type s: str
         :rtype: int
         """
-        odd_count = 0
-        d = {}
-        for ch in s:
-            if ch in d:
-                d[ch] += 1
+        
+        count: int = 0
+        letterToCounter: dict[str, int] = {} //mapa
+        
+        for letter in s:
+            if letter in letterToCounter:
+                letterToCounter[letter] += 1
             else:
-                d[ch] = 1
-            if d[ch] % 2 == 1:
-                odd_count += 1
+                letterToCounter[letter] = 1
+            if letterToCounter[letter] % 2 == 1:
+                count += 1
             else:
-                odd_count -= 1
-        if odd_count > 1:
-            return len(s) - odd_count + 1
+                count -= 1
+                
+        if count > 1:
+            return len(s) - count + 1
+        
         return len(s)

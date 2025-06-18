@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
-    def buildTree(self, inorder, postorder):
+    def buildTree(self, inorder: list[int], postorder: list[int]) -> Optional[TreeNode]:
         """
         :type inorder: List[int]
         :type postorder: List[int]
@@ -14,10 +14,10 @@ class Solution(object):
         if not inorder:
             return
         
-        r=postorder.pop() 
-        root=TreeNode(r) 
-        i=inorder.index(r) 
+        rootValue:int=postorder.pop() 
+        root: Treenode =TreeNode(rootValue) 
+        rootIndex: int =inorder.index(rootValue) 
         
-        root.right=self.buildTree(inorder[i+1:],postorder) 
-        root.left=self.buildTree(inorder[:i],postorder) 
+        root.right=self.buildTree(inorder[rootIndex+1:],postorder) 
+        root.left=self.buildTree(inorder[:rootIndex],postorder) 
         return root
