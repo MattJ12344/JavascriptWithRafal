@@ -21,3 +21,13 @@ class Solution(object):
         dfs(0, 0, "")
 
         return combinations
+    
+sol = Solution()
+
+assert set(sol.generateParenthesis(1)) == {"()"}
+assert set(sol.generateParenthesis(2)) == {"(())", "()()"}
+assert set(sol.generateParenthesis(3)) == {"((()))", "(()())", "(())()", "()(())", "()()()"}
+assert len(sol.generateParenthesis(4)) == 14
+assert len(sol.generateParenthesis(5)) == 42
+
+print("Spoko")

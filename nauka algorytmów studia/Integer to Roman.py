@@ -14,3 +14,18 @@ class Solution(object):
                 
                 
         return Roman
+    
+sol = Solution()
+
+assert sol.intToRoman(1) == "I"
+assert sol.intToRoman(3) == "III"
+assert sol.intToRoman(4) == "IV"
+assert sol.intToRoman(9) == "IX"
+assert sol.intToRoman(58) == "LVIII"       
+assert sol.intToRoman(1994) == "MCMXCIV"   
+assert sol.intToRoman(3999) == "MMMCMXCIX" 
+assert sol.intToRoman(44) == "XLIV"
+assert sol.intToRoman(621) == "DCXXI"
+assert sol.intToRoman(2024) == "MMXXIV"
+
+print("Kokoszka")

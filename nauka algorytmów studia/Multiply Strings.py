@@ -8,7 +8,7 @@ class Solution(object):
         if first == "0" or second == "0":
             return "0"
         
-        firstLength: int = len(first),
+        firstLength: int = len(first)
         secondLength: int = len(second)
         result: list[int] = [0] * (firstLength + secondLength)
 
@@ -24,8 +24,16 @@ class Solution(object):
 
                 result[position2] = currnetSum % 10
                 result[position1] += currnetSum // 10
-                
+
                 
         resultStr: str = ''.join(map(str, result))
 
         return resultStr.lstrip('0')
+    
+sol = Solution()
+
+assert sol.multiply("2", "3") == "6"
+assert sol.multiply("123", "456") == "56088"
+assert sol.multiply("0", "12345") == "0"
+assert sol.multiply("999", "999") == "998001"
+print("OK")

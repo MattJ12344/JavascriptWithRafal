@@ -1,30 +1,46 @@
 class Solution(object):
-    def isInterleave(self, first: str, second: str, trird: str) -> bool:
-        """
-        :type s1: str
-        :type s2: str
-        :type s3: str
-        :rtype: bool
-        """
-        firstLength: int= len(first), 
-        secondLength: int= len(second)
+    def isInterleave(self, first: str, second: str, third: str) -> bool:
+        firstLength: int = len(first)
+        secondLength: int = len(second)
 
-        if firstLength + secondLength != len(trird):
+        if firstLength + secondLength != len(third):
             return False
 
-        dynamicProgramming: list[bool] = [False] * (secondLength + 1)
-        dynamicProgramming[0] = True
+        dp: list[bool] = [False] * (secondLength + 1)
+        dp[0] = True
 
         for j in range(1, secondLength + 1):
-            dynamicProgramming[j] = dynamicProgramming[j - 1] and second[j - 1] == trird[j - 1]
-
+            dp[j] = dp[j - 1] and second[j - 1] == third[j - 1]
 
         for i in range(1, firstLength + 1):
-            dynamicProgramming[0] = dynamicProgramming[0] and first[i - 1] == trird[i - 1]
-            
-            for j in range(1, secondLength + 1):
-                dynamicProgramming[j] = (dynamicProgramming[j] and first[i - 1] == trird[i + j - 1]) or \
-                        (dynamicProgramming[j - 1] and second[j - 1] == trird[i + j - 1])
-                        
+            dp[0] = dp[0] and first[i - 1] == third[i - 1]
 
-        return dynamicProgramming[secondLength]
+            for j in range(1, secondLength + 1):
+                dp[j] = (dp[j] and first[i - 1] == third[i + j - 1]) or \
+                        (dp[j - 1] and second[j - 1] == third[i + j - 1])
+
+        return dp[secondLength]
+    
+sol = Solution()
+
+assert sol.isInterleave("aab", "axy", "aaxaby") == True
+
+assert sol.isInterleave("aab", "axy", "abaaxy") == False
+
+assert sol.isInterleave("", "", "") == True
+
+assert sol.isInterleave("", "abc", "abc") == True
+
+assert sol.isInterleave("abc", "", "abc") == True
+
+assert sol.isInterleave("abc", "def", "abcd") == False
+
+assert sol.isInterleave("aa", "ab", "aaba") == True
+
+assert sol.isInterleave("aa", "ab", "abaa") == True
+
+assert sol.isInterleave("abc", "def", "adbcef") == True
+
+assert sol.isInterleave("abc", "def", "abdecf") == True
+
+print("OKI")

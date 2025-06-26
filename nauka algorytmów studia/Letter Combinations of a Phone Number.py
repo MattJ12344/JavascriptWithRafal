@@ -10,7 +10,7 @@ class Solution(object):
         phone: dict[str, str] = {"2": "abc", "3": "def", "4": "ghi", "5": "jkl", "6": "mno", "7": "pqrs", "8": "tuv", "9": "wxyz"}
         result: list[str] = []
         
-        def backtrack(combination, nextKeyboardKeys):
+        def backtrack(combination: str, nextKeyboardKeys: str) -> None:
             if not nextKeyboardKeys:
                 result.append(combination)
                 return
@@ -20,3 +20,15 @@ class Solution(object):
         
         backtrack("", keyboardKeys)
         return result
+    
+sol = Solution()
+
+assert sol.letterCombinations("23") == [
+    "ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"
+]
+
+assert sol.letterCombinations("") == []
+
+assert sol.letterCombinations("2") == ["a", "b", "c"]
+
+print("Zmeczony")

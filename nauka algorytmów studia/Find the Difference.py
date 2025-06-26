@@ -18,3 +18,13 @@ class Solution(object):
                 del letterToCounter[letter]
 
         return list(letterToCounter.keys())[0]
+    
+sol = Solution()
+
+assert sol.findTheDifference("abcd", "abcde") == "e"
+assert sol.findTheDifference("", "y") == "y"
+assert sol.findTheDifference("a", "aa") == "a"
+assert sol.findTheDifference("ae", "aea") == "a"
+assert sol.findTheDifference("xyz", "zxyq") == "q"
+
+print("HELL WIN ZNACIE ANGIELSKI")

@@ -15,3 +15,16 @@ class Solution(object):
             tp += 1
         
         return sp == len(s)
+    
+sol = Solution()
+
+assert sol.isSubsequence("abc", "ahbgdc") == True     
+assert sol.isSubsequence("axc", "ahbgdc") == False    
+assert sol.isSubsequence("", "anything") == True      
+assert sol.isSubsequence("abc", "") == False          
+assert sol.isSubsequence("ace", "abcde") == True      
+assert sol.isSubsequence("aec", "abcde") == False     
+assert sol.isSubsequence("a", "a") == True
+assert sol.isSubsequence("a", "b") == False
+
+print("O matko")

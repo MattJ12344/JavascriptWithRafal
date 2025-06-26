@@ -18,3 +18,13 @@ class Solution(object):
             return True
         
         return False
+    
+sol = Solution()
+
+assert sol.isIsomorphic("egg", "add") == True
+assert sol.isIsomorphic("foo", "bar") == False
+assert sol.isIsomorphic("paper", "title") == True
+assert sol.isIsomorphic("ab", "aa") == False
+assert sol.isIsomorphic("badc", "baba") == False
+
+print("BTS")

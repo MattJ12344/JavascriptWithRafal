@@ -54,3 +54,14 @@ class Solution(object):
             return last
 
         return [findfirst(numbers,target),findlast(numbers,target)]
+    
+sol = Solution()
+
+assert sol.searchRange([5,7,7,8,8,10], 8) == [3, 4]
+assert sol.searchRange([5,7,7,8,8,10], 6) == [-1, -1]
+assert sol.searchRange([], 0) == [-1, -1]
+assert sol.searchRange([1], 1) == [0, 0]
+assert sol.searchRange([2, 2, 2, 2], 2) == [0, 3]
+assert sol.searchRange([1, 2, 3, 3, 3, 3, 4, 5, 9], 3) == [2, 5]
+
+print("Poszlo")

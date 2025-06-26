@@ -14,3 +14,21 @@ class Solution(object):
             result[tuple(count)].append(s)
         
         return list(result.values())
+
+
+sol = Solution()
+
+assert sorted([sorted(group) for group in sol.groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"])]) == \
+       sorted([sorted(group) for group in [["bat"], ["nat", "tan"], ["ate", "eat", "tea"]]])
+
+assert sorted([sorted(group) for group in sol.groupAnagrams([""])]) == [[""]]
+
+assert sorted([sorted(group) for group in sol.groupAnagrams(["a"])]) == [["a"]]
+
+assert sorted([sorted(group) for group in sol.groupAnagrams(["abc", "bca", "cab", "xyz", "zyx"])]) == \
+       sorted([["abc", "bca", "cab"], ["xyz", "zyx"]])
+
+print("✅ Wszystkie testy przeszły poprawnie.")
+
+
+##to z chatu gpt wziąłem, bo nie wiedziałem jak zrobić ten tutaj test

@@ -20,3 +20,26 @@ class Solution(object):
                 
                 
         return matrix[-1][-1]
+    
+sol = Solution()
+
+assert sol.minPathSum([
+    [1,3,1],
+    [1,5,1],
+    [4,2,1]
+]) == 7  
+
+assert sol.minPathSum([
+    [1,2,3],
+    [4,5,6]
+]) == 12 
+
+assert sol.minPathSum([[5]]) == 5
+
+assert sol.minPathSum([
+    [1,1,1],
+    [1,1,1],
+    [1,1,1]
+]) == 5  
+
+print("nuda")

@@ -1,21 +1,27 @@
-class Solution(object):
-    def permuteUnique(self, numbers: list[int]) -> list[list[int]]:
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
-        permutations: list[list[int]] = []
-        numbers.sort()
-        self.dfs(numbers, [], permutations)
-        return permutations
-    
-    def dfs(self, availableNumbers: list[int], currentPermutation: list[int], allPermutations: list[list[int]]) -> None:
-        if not availableNumbers:
-            allPermutations.append(currentPermutation)
+from typing import List
+
+class Solution:
+    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+        result: List[List[int]] = []
+        nums.sort()
+        used = [False] * len(nums)
+
+        def backtrack(path: List[int]) -> None:
+            if len(path) == len(nums):
+                result.append(path[:])
+                return
             
-        for index in range(len(availableNumbers)):
-            
-            if index > 0 and availableNumbers[index] == availableNumbers[index-1]:
-                continue
-            
-            self.dfs(availableNumbers[:index]+availableNumbers[index+1:], currentPermutation+[availableNumbers[index]], allPermutations)
+            for i in range(len(nums)):
+                if used[i]:
+                    continue
+                if i > 0 and nums[i] == nums[i - 1] and not used[i - 1]:
+                    continue
+                
+                used[i] = True
+                path.append(nums[i])
+                backtrack(path)
+                path.pop()
+                used[i] = False
+
+        backtrack([])
+        return result

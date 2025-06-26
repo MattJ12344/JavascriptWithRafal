@@ -23,3 +23,18 @@ class Solution(object):
 
 
         return mergedIntervals
+    
+sol = Solution()
+
+
+assert sol.merge([[1,3],[2,6],[8,10],[15,18]]) == [[1,6],[8,10],[15,18]]
+
+assert sol.merge([[1,4]]) == [[1,4]]
+
+assert sol.merge([[1,4],[2,3]]) == [[1,4]]
+
+assert sol.merge([[1,2],[3,4],[5,6]]) == [[1,2],[3,4],[5,6]]
+
+assert sol.merge([[1,4],[0,2],[3,5]]) == [[0,5]]
+
+print("KOD")

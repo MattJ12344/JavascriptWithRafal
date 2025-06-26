@@ -7,7 +7,7 @@ class Solution(object):
         """
         
         count: int = 0
-        letterToCounter: dict[str, int] = {} //mapa
+        letterToCounter: dict[str, int] = {} #mapa
         
         for letter in s:
             if letter in letterToCounter:
@@ -23,3 +23,14 @@ class Solution(object):
             return len(s) - count + 1
         
         return len(s)
+    
+sol = Solution()
+
+assert sol.longestPalindrome("abccccdd") == 7   # "dccaccd"
+assert sol.longestPalindrome("a") == 1
+assert sol.longestPalindrome("aa") == 2
+assert sol.longestPalindrome("aaa") == 3
+assert sol.longestPalindrome("abc") == 1
+assert sol.longestPalindrome("") == 0
+
+print("Cosiek")

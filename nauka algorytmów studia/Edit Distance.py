@@ -26,3 +26,15 @@ class Solution(object):
                     dp[i][j] = min(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]) + 1
 
         return dp[m][n]
+    
+sol = Solution()
+
+assert sol.minDistance("horse", "ros") == 3      
+assert sol.minDistance("intention", "execution") == 5
+assert sol.minDistance("abc", "abc") == 0
+assert sol.minDistance("abc", "def") == 3
+assert sol.minDistance("", "abc") == 3
+assert sol.minDistance("abc", "") == 3
+assert sol.minDistance("", "") == 0
+
+print("OMG!")
