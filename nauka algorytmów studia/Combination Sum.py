@@ -18,3 +18,21 @@ class Solution(object):
         candidates.sort()
         backtrack(0, target, [])
         return result
+    
+sol = Solution()
+
+res1 = sol.combinationSum([2, 3, 6, 7], 7)
+expected1 = [[2, 2, 3], [7]]
+assert sorted(map(sorted, res1)) == sorted(map(sorted, expected1))
+
+res2 = sol.combinationSum([2, 3, 5], 8)
+expected2 = [[2, 2, 2, 2], [2, 3, 3], [3, 5]]
+assert sorted(map(sorted, res2)) == sorted(map(sorted, expected2))
+
+res3 = sol.combinationSum([2], 1)
+assert res3 == []
+
+res4 = sol.combinationSum([1], 1)
+assert res4 == [[1]]
+
+print("NUDA")

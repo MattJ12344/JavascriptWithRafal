@@ -27,3 +27,15 @@ class Solution(object):
             result=nextTerm
             
         return result
+
+sol = Solution()
+
+assert sol.countAndSay(1) == "1"
+assert sol.countAndSay(2) == "11"
+assert sol.countAndSay(3) == "21"
+assert sol.countAndSay(4) == "1211"
+assert sol.countAndSay(5) == "111221"
+assert sol.countAndSay(6) == "312211"
+assert sol.countAndSay(7) == "13112221"
+
+print("Nuda")

@@ -1,46 +1,43 @@
+from typing import Optional
+
+class ListNode:
+    def __init__(self, val: int = 0, next: Optional['ListNode'] = None):
+        self.val = val
+        self.next = next
+
 class Solution(object):
-    def rotateRight(self, head:Optional[ListNode], k:int) -> Optional[ListNode]:
+    def rotateRight(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
         """
         :type head: Optional[ListNode]
         :type k: int
         :rtype: Optional[ListNode]
         """
-        if head==None or head.next==None:
-
+        if head is None or head.next is None:
             return head
 
         length: int = 0
+        current_node: Optional[ListNode] = head
 
-        currentNode: Optional[ListNode] = head
-
-        while currentNode!=None:
-
-            length+=1
-            currentNode=currentNode.next
+        while current_node is not None:
+            length += 1
+            current_node = current_node.next
 
         k = k % length
-        
         if k == 0:
             return head
-        
-        currentNode=head
-        
-        for i in range(length-k-1):
 
-            currentNode=currentNode.next
+        current_node = head
+        for _ in range(length - k - 1):
+            current_node = current_node.next
 
-        newHead=currentNode.next
-        
-        currentNode.next=None
+        new_head: Optional[ListNode] = current_node.next
+        current_node.next = None
 
+        tail_node = new_head
+        while tail_node.next is not None:
+            tail_node = tail_node.next
 
-        tailNode=newHead
-
-        while tailNode.next is not None:
-            tailNode=tailNode.next
-
-        
-        tailNode.next=head
-        head=newHead
+        tail_node.next = head
+        head = new_head
 
         return head

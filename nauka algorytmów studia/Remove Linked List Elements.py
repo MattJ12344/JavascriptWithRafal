@@ -1,8 +1,10 @@
-# Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
+from typing import Optional
+
+class ListNode:
+    def __init__(self, val: int = 0, next: Optional['ListNode'] = None):
+        self.val = val
+        self.next = next
+
 class Solution(object):
     def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
         """
@@ -17,5 +19,5 @@ class Solution(object):
             while currentNode.next and currentNode.next.val == val:
                 currentNode.next = currentNode.next.next
             currentNode = currentNode.next
-        
+
         return nodeHead.next
