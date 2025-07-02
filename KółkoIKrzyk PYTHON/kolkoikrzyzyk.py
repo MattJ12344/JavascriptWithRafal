@@ -12,7 +12,7 @@ from typing import List, Optional
 
 class KolkoIKrzyzyk:
     def __init__(self) -> None:
-        self.rozmiar: int = 3
+        self.rozmiar: int = 5
         self.plansza: List[List[str]] = []
         self.gracze: List[str] = ['X', 'O']
         self.wygrany: Optional[str] = None
