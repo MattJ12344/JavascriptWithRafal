@@ -61,58 +61,63 @@ class KolkoIKrzyzyk:
         
     def sprawdzWygrana(self, gracz: str) -> bool:
         
-        for i in range(self.rozmiar):
-            wygrana_wiersz = True
-            
-            for j in range(self.rozmiar):
-                
-                if self.plansza[i][j] != gracz:
-                    
-                    wygrana_wiersz = False
-                    break
-                    
-            if wygrana_wiersz:
-                return True
-                
-                
-        for i in range(self.rozmiar):
-            
-            wygrana_kolumna = True
-            
-            for j in range(self.rozmiar):
-                
-                if self.plansza[j][i] != gracz:
-                    wygrana_kolumna = False
-                    break
-                    
-            if wygrana_kolumna:
-                return True
-                
-        
-        wygrana_przekatna1 = True
+        wymagane:int = 5
         
         for i in range(self.rozmiar):
             
-            if self.plansza[i][i] != gracz:
+            for j in range(self.rozmiar - wymagane + 1):
+
                 
-                wygrana_przekatna1 = False
-                break
+                wszystkie = True
+                for k in range(wymagane):
+                    
+                    if self.plansza[i][j + k] != gracz:
+                        wszystkie = False
+                        break
+                if wszystkie:
+                    
+                    return True
+
                 
-        if wygrana_przekatna1:
-            return True
+                wszystkie = True
+                for k in range(wymagane):
+                    
+                    if self.plansza[j + k][i] != gracz:
+                        wszystkie = False
+                        break
+                    
+                if wszystkie:
+                    return True
+
+        
+        for i in range(self.rozmiar - wymagane + 1):
             
-            
-        wygrana_przekatna2 = True
-         
-        for i in range(self.rozmiar):
-            
-            if self.plansza[i][self.rozmiar - 1 - i] != gracz:
+            for j in range(self.rozmiar - wymagane + 1):
                 
-                wygrana_przekatna2 = False
-                break
+                wszystkie = True
                 
-        if wygrana_przekatna2:
-            return True
+                for k in range(wymagane):
+                    
+                    if self.plansza[i + k][j + k] != gracz:
+                        wszystkie = False
+                        break
+                    
+                if wszystkie:
+                    return True
+
+        
+        for i in range(self.rozmiar - wymagane + 1):
+            
+            for j in range(wymagane - 1, self.rozmiar):
+                wszystkie = True
+                
+                for k in range(wymagane):
+                    if self.plansza[i + k][j - k] != gracz:
+                        wszystkie = False
+                        break
+                    
+                if wszystkie:
+                    return True
 
         return False
 
@@ -132,16 +137,19 @@ class KolkoIKrzyzyk:
         
     
     def rozpocznijGre(self) -> None:
-        print("Start gry pomiędzy dwoma graczami")
+        print("Start gry pomiedzy dwoma graczami")
         
         licznikRund: int = 0
         
         while self.punkty['X'] < 3 and self.punkty['O'] < 3:
             self.zresetujRundeGry()
+            
             if licznikRund % 2 == 0:
                 gracz = 'X'
             else:
                 gracz = 'O'
+            
+            print(f"\n--- Runda {licznikRund + 1} ---")
             
             while True:
                 self.wykonajRuch(gracz)
@@ -168,7 +176,7 @@ class KolkoIKrzyzyk:
             self.wyswietlPlansze()
             
             if self.wygrany != None:
-                print(f"Gracz {self.wygrany} wygrał rundę!")
+                print(f"Gracz {self.wygrany} wygral runde!")
                 
             else:
                 print("Remis!")
@@ -179,10 +187,10 @@ class KolkoIKrzyzyk:
             
             
         if self.punkty['X'] == 3:
-            print("Gracz X wygrał całą grę!")
+            print("Gracz X wygral cala gre!")
             
         else:
-            print("Gracz O wygrał całą grę!")     
+            print("Gracz O wygral cala gre!")     
 
 
 gra = KolkoIKrzyzyk()
