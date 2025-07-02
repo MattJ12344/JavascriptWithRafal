@@ -134,9 +134,14 @@ class KolkoIKrzyzyk:
     def rozpocznijGre(self) -> None:
         print("Start gry pomiędzy dwoma graczami")
         
+        licznikRund: int = 0
+        
         while self.punkty['X'] < 3 and self.punkty['O'] < 3:
             self.zresetujRundeGry()
-            gracz = 'X'
+            if licznikRund % 2 == 0:
+                gracz = 'X'
+            else:
+                gracz = 'O'
             
             while True:
                 self.wykonajRuch(gracz)
@@ -169,6 +174,8 @@ class KolkoIKrzyzyk:
                 print("Remis!")
                 
             print(f"Wynik: X = {self.punkty['X']} | O = {self.punkty['O']}\n")
+            
+            licznikRund += 1
             
             
         if self.punkty['X'] == 3:
