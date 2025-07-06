@@ -18,15 +18,14 @@ class KolkoIKrzyzyk:
         self.wygrany: Optional[str] = None
         self.punkty: dict[str, int] = {'X': 0, 'O': 0}
         self.utworzPustaPlansze()
-        self.rozpocznijGre()
 
     def utworzPustaPlansze(self) -> None:
         self.plansza = []
         
-        for i in range(self.rozmiar):
+        for _ in range(self.rozmiar):
             wiersz: List[str] = []
             
-            for j in range(self.rozmiar):
+            for _ in range(self.rozmiar):
                 wiersz.append(' ')
                 
             self.plansza.append(wiersz)
@@ -59,67 +58,43 @@ class KolkoIKrzyzyk:
         
         self.plansza[x][y] = gracz
         
-    def sprawdzWygrana(self, gracz: str) -> bool:
-        
-        wymagane:int = 5
+    def czyWygranaWiersz(self, gracz: str) -> bool:
         
         for i in range(self.rozmiar):
-            
-            for j in range(self.rozmiar - wymagane + 1):
-
-                
-                wszystkie = True
-                for k in range(wymagane):
-                    
-                    if self.plansza[i][j + k] != gracz:
+            wszystkie = True
+            for j in range(self.rozmiar):
+                if self.plansza[i][j] != gracz:
                         wszystkie = False
                         break
-                if wszystkie:
-                    
-                    return True
-
-                
-                wszystkie = True
-                for k in range(wymagane):
-                    
-                    if self.plansza[j + k][i] != gracz:
-                        wszystkie = False
-                        break
-                    
-                if wszystkie:
-                    return True
-
-        
-        for i in range(self.rozmiar - wymagane + 1):
-            
-            for j in range(self.rozmiar - wymagane + 1):
-                
-                wszystkie = True
-                
-                for k in range(wymagane):
-                    
-                    if self.plansza[i + k][j + k] != gracz:
-                        wszystkie = False
-                        break
-                    
-                if wszystkie:
-                    return True
-
-        
-        for i in range(self.rozmiar - wymagane + 1):
-            
-            for j in range(wymagane - 1, self.rozmiar):
-                wszystkie = True
-                
-                for k in range(wymagane):
-                    if self.plansza[i + k][j - k] != gracz:
-                        wszystkie = False
-                        break
-                    
-                if wszystkie:
-                    return True
-
+            if wszystkie:
+                return True
         return False
+
+    def czyWygranaKolumna(self, gracz: str) -> bool:         
+        for i in range(self.rozmiar):
+            wszystkie = True
+            for j in range(self.rozmiar):
+                if self.plansza[j][i] != gracz:
+                        wszystkie = False
+                        break
+            if wszystkie:
+                return True
+        return False
+
+
+    def czyWygranaSkosLewy(self, gracz: str) -> bool:    
+        for i in range(self.rozmiar):
+             
+            if self.plansza[i][i] != gracz:
+                return False
+        return True
+
+    def czyWygranaSkosPrawy(self, gracz: str) -> bool:
+        for i in range(self.rozmiar):
+             
+            if self.plansza[i][self.rozmiar - 1- i] != gracz:
+                return False
+        return True
 
     def czyJestRemis(self) -> bool:
         for i in range(self.rozmiar):
@@ -139,26 +114,30 @@ class KolkoIKrzyzyk:
     def rozpocznijGre(self) -> None:
         print("Start gry pomiedzy dwoma graczami")
         
-        licznikRund: int = 0
+        licznikGier: int = 0
         
         while self.punkty['X'] < 3 and self.punkty['O'] < 3:
             self.zresetujRundeGry()
             
-            if licznikRund % 2 == 0:
+            if licznikGier % 2 == 0:
                 gracz = 'X'
             else:
                 gracz = 'O'
             
-            print(f"\n--- Runda {licznikRund + 1} ---")
+            print(f"\n--- Runda {licznikGier + 1} ---")
             
             while True:
                 self.wykonajRuch(gracz)
                 
-                if self.sprawdzWygrana(gracz):
+                if (
+                    self.czyWygranaWiersz(gracz)
+                    or self.czyWygranaKolumna(gracz)
+                    or self.czyWygranaSkosLewy(gracz)
+                    or self.czyWygranaSkosPrawy(gracz)
+                ):
                     self.wygrany = gracz
-                    self.punkty[gracz] += 1
-                    break
-                    
+                    self.punkty[gracz] +=1
+                    break 
                 
                 if self.czyJestRemis():
                     break
@@ -183,7 +162,7 @@ class KolkoIKrzyzyk:
                 
             print(f"Wynik: X = {self.punkty['X']} | O = {self.punkty['O']}\n")
             
-            licznikRund += 1
+            licznikGier += 1
             
             
         if self.punkty['X'] == 3:
