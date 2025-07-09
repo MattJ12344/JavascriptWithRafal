@@ -12,7 +12,7 @@ class Snake:
         self.punkty: int = 0
         self.ruchy: List[str] = ruchyDoWykonania
     
-        self.ileZjedzonychOwockow()
+        
     
     def wygenerujPlansze(self) -> None:
         self.plansza = []
@@ -207,3 +207,41 @@ print(spodziewanaPlansza2)
 
 assert waz2.planszaNaString() == spodziewanaPlansza2 , "Planasza zgadza się z spodziewaną"
 assert waz2.ileZjedzonychOwockow() == 2
+
+
+#nowa gra3
+#---Test3---
+
+ruchyDoWykonania3: List[str] = ["d", "d", "s", "s", "a", "a", "w", "d"]
+waz3: Snake = Snake(ruchyDoWykonania3)
+waz3.wygenerujPlansze()
+waz3.wygenerujSnake(0, 0)
+waz3.postawOwoc(1, 2)
+waz3.postawOwoc(2, 0)
+waz3.postawOwoc(1, 0)
+waz3.postawOwoc(1, 1)
+
+
+
+poczatkowaPlansza3: str = (
+    "[X][][]\n"
+    "[O][O][O]\n"
+    "[O][][]\n"
+)
+
+assert waz3.planszaNaString() == poczatkowaPlansza3
+
+waz3.wykonajRuchy()
+
+spodziewanaPlansza3: str = (
+    "[][][]\n"
+    "[][X][]\n"
+    "[][][]\n"
+)
+
+
+print(waz3.planszaNaString())
+print(spodziewanaPlansza3)
+
+assert waz3.planszaNaString() == spodziewanaPlansza3 , "Planasza zgadza się z spodziewaną"
+assert waz3.ileZjedzonychOwockow() == 4
