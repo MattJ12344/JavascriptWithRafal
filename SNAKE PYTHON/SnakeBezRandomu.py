@@ -32,10 +32,10 @@ class Snake:
         
     def postawOwoc(self, x:int, y:int) -> None:
 
-        self.owoce = [[x, y]]
+        self.owoce.append([x, y])
         self.plansza[x][y] = 'O'
     
-    def ileZjedzonychOwockow(self) -> None:
+    def ileZjedzonychOwockow(self) -> int:
         return self.punkty
         
     def dodajPunkty(self) -> None:
@@ -81,6 +81,10 @@ class Snake:
             
             if not(0 <= nowyX < self.rozmiar and 0<= nowyY < self.rozmiar):
                 continue
+            
+            if [nowyX, nowyY] in self.owoce:
+                self.dodajPunkty()
+                self.owoce.remove([nowyX, nowyY])
             
             self.snake[0] = [nowyX, nowyY]
             self.plansza[nowyX][nowyY] = 'X'
@@ -166,6 +170,40 @@ spodziewanaPlansza1: str = (
 print(waz1.planszaNaString())
 print(spodziewanaPlansza1)
 
-assert waz1.planszaNaString() == spodziewanaPlansza1 , "Planasza nie zgadza się z spodziewaną"
+assert waz1.planszaNaString() == spodziewanaPlansza1 , "Planasza zgadza się z spodziewaną"
 assert waz1.ileZjedzonychOwockow() == 1
 
+#nowa gra
+#---Test2---
+
+ruchyDoWykonania2: List[str] = ["s", "s", "d"]
+waz2: Snake = Snake(ruchyDoWykonania2)
+waz2.wygenerujPlansze()
+waz2.wygenerujSnake(0, 0)
+waz2.postawOwoc(2, 0)
+waz2.postawOwoc(2, 1)
+
+
+
+poczatkowaPlansza2: str = (
+    "[X][][]\n"
+    "[][][]\n"
+    "[O][O][]\n"
+)
+
+assert waz2.planszaNaString() == poczatkowaPlansza2
+
+waz2.wykonajRuchy()
+
+spodziewanaPlansza2: str = (
+    "[][][]\n"
+    "[][][]\n"
+    "[][X][]\n"
+)
+
+
+print(waz2.planszaNaString())
+print(spodziewanaPlansza2)
+
+assert waz2.planszaNaString() == spodziewanaPlansza2 , "Planasza zgadza się z spodziewaną"
+assert waz2.ileZjedzonychOwockow() == 2
