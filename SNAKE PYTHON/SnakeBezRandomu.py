@@ -11,6 +11,7 @@ class Snake:
         self.owoce: List[List[int]] = []
         self.punkty: int = 0
         self.ruchy: List[str] = ruchyDoWykonania
+        self.koniecGry: bool = False
     
         
     
@@ -64,30 +65,32 @@ class Snake:
             else:
                 continue
             
-            wierszDoUsuniecia = 0
-            iDoUsuniecia = 0
             
-            for wiersz in range(len(self.plansza)):
-                for i in range(len(self.plansza[wiersz])):
-                    if self.plansza[wiersz][i] == 'X':
-                        wierszDoUsuniecia = wiersz
-                        iDoUsuniecia = i
-                        
-                        
-            self.plansza[wierszDoUsuniecia][iDoUsuniecia] = ' '
+            glowaX, glowaY = self.snake[0]
             
-            nowyX = wierszDoUsuniecia + x
-            nowyY = iDoUsuniecia + y
+            nowyX = glowaX + x
+            nowyY = glowaY + y
             
             if not(0 <= nowyX < self.rozmiar and 0<= nowyY < self.rozmiar):
-                continue
+                self.koniecGry = True
+                self.oznaczZakonczonaGre()
+                return
+            
+            if [nowyX, nowyY] in self.snake:
+                self.koniecGry = True
+                self.oznaczZakonczonaGre()
+                return
+            
+            self.snake.insert(0, [nowyX, nowyY])
             
             if [nowyX, nowyY] in self.owoce:
-                self.dodajPunkty()
                 self.owoce.remove([nowyX, nowyY])
+                self.dodajPunkty()
             
-            self.snake[0] = [nowyX, nowyY]
-            self.plansza[nowyX][nowyY] = 'X'
+            else:
+                self.snake.pop()
+                
+            self.odswiezPlansze()
              
                     
                     
@@ -118,7 +121,22 @@ class Snake:
             # [][X][O]
             # [][][]
             # [][][]
+    
+    def oznaczZakonczonaGre(self) -> None:
+        for segment in self.snake:
+            x, y = segment
+            self.plansza[x][y] = 'Z'   
             
+    def odswiezPlansze(self) -> None:
+        
+        self.wygenerujPlansze()
+        
+        for x, y in self.owoce:
+            self.plansza[x][y] = 'O'
+        
+        for x, y in self.snake:
+            self.plansza[x][y] = 'X'    
+    
     
      
             
@@ -162,7 +180,7 @@ assert waz1.planszaNaString() == poczatkowaPlansza1
 waz1.wykonajRuchy()
 
 spodziewanaPlansza1: str = (
-    "[][][X]\n"
+    "[][X][X]\n"
     "[][][]\n"
     "[][][]\n"
 )
@@ -197,8 +215,8 @@ waz2.wykonajRuchy()
 
 spodziewanaPlansza2: str = (
     "[][][]\n"
-    "[][][]\n"
-    "[][X][]\n"
+    "[X][][]\n"
+    "[X][X][]\n"
 )
 
 
@@ -235,8 +253,8 @@ waz3.wykonajRuchy()
 
 spodziewanaPlansza3: str = (
     "[][][]\n"
-    "[][X][]\n"
-    "[][][]\n"
+    "[X][X][]\n"
+    "[X][X][X]\n"
 )
 
 
