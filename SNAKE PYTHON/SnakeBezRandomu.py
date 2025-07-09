@@ -64,22 +64,27 @@ class Snake:
             else:
                 continue
             
-            for wiersz in self.plansza:
-                for i in x:
+            wierszDoUsuniecia = 0
+            iDoUsuniecia = 0
+            
+            for wiersz in range(len(self.plansza)):
+                for i in range(len(self.plansza[wiersz])):
                     if self.plansza[wiersz][i] == 'X':
+                        wierszDoUsuniecia = wiersz
+                        iDoUsuniecia = i
                         
-                    
-                    
-    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                        
+            self.plansza[wierszDoUsuniecia][iDoUsuniecia] = ' '
+            
+            nowyX = wierszDoUsuniecia + x
+            nowyY = iDoUsuniecia + y
+            
+            if not(0 <= nowyX < self.rozmiar and 0<= nowyY < self.rozmiar):
+                continue
+            
+            self.snake[0] = [nowyX, nowyY]
+            self.plansza[nowyX][nowyY] = 'X'
+             
                     
                     
                     
