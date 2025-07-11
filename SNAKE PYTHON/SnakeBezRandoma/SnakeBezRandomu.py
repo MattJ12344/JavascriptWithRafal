@@ -5,7 +5,7 @@ class Snake:
     
     # Konstruktor
     def  __init__(self) -> None:
-        self.rozmiar: int = 3
+        self.rozmiar: int = 5
         self.plansza: List[List[str]] = []
         self.snake: List[List[int]] = []
         self.owoce: List[List[int]] = []
@@ -26,9 +26,32 @@ class Snake:
             self.plansza.append(wiersz)
 
     def wygenerujSnake(self, x:int, y: int) -> None:
+        
+        if 3<= self.rozmiar <= 4:
+            dlugosc: int = 1
+            
+        elif 5 <= self.rozmiar <=9:
+            dlugosc:int  = 2
+            
+        elif 10 <= self.rozmiar <= 20:
+            dlugosc = 3
+            
+        else:
+            dlugosc = 1
+            
+        self.snake = []
+        
+        for i in range(dlugosc):
+            nowyX:int = x
+            nowyY:int = y + i
+            
+            if nowyY < self.rozmiar:
+                self.snake.append([nowyX, nowyY])
+        
+        self.odswiezPlansze()
+            
+             
   
-        self.snake = [[x, y]]
-        self.plansza[x][y] = 'X'
         
     def postawOwoc(self, x:int, y:int) -> None:
 
@@ -64,30 +87,30 @@ class Snake:
             else:
                 continue
             
+            glowaX, glowaY = self.snake[len(self.snake) - 1]
             
-            glowaX, glowaY = self.snake[0]
-            
-            nowyX = glowaX + x
-            nowyY = glowaY + y
+            nowyX = glowaX + x 
+            nowyY = glowaY + y 
             
             if not(0 <= nowyX < self.rozmiar and 0<= nowyY < self.rozmiar):
                 self.koniecGry = True
-                self.oznaczZakonczonaGre()
+                self.oznaczZakonczonaGre()  
                 return
             
-            if [nowyX, nowyY] in self.snake:
+            #szuka czy napotka czesc ciala i wtedy ma się zakonczyc gre
+            if [nowyX, nowyY] in self.snake: 
                 self.koniecGry = True
                 self.oznaczZakonczonaGre()
                 return
             
-            self.snake.insert(0, [nowyX, nowyY])
+            self.snake.insert(len(self.snake), [nowyX, nowyY])
             
             if [nowyX, nowyY] in self.owoce:
                 self.owoce.remove([nowyX, nowyY])
                 self.dodajPunkty()
             
             else:
-                self.snake.pop()
+                self.snake.pop(0)
                 
             self.odswiezPlansze()
 
@@ -109,8 +132,6 @@ class Snake:
             self.plansza[x][y] = 'X'    
     
     
-     
-            
     def planszaNaString(self) -> str:
         wynik = ""
         
