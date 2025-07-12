@@ -1,0 +1,9 @@
+Set zaimplementować seta w liście
+
+Można zaimplementować uproszczoną wersję seta (zbioru) w Pythonie za pomocą listy. Główne cechy seta, które musimy odwzorować:
+
+Unikalność elementów – brak duplikatów,
+
+Możliwość dodawania i usuwania elementów,
+
+Możliwość sprawdzania przynależności (in).

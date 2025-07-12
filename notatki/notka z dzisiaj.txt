@@ -1,0 +1,24 @@
+1. Poprawnie pisać po polsku w sposób w opisany
+2. Jak się uczysz programowania, jak nie rozumiem to googlowanie słówek , czy przetłumaczyć całe zdania
+3. Używać klawiszy zamiast stringów, w pythonie - snake [zadanie]
+4. że jeśli nie przekazuje, (czyli spacja lub enter) to idzie dalej, jaki kierunek mu nadałem. ZAPAMIĘTAĆ! [zadanie]
+5. Małymi krokami - sprawdzać, kod, dzielić na małe kawałeczki, detektyw
+6. Masz mieć po grupowane, wszystkie rzeczy na GitHubie, z moich notatek. Tak jak u Snape w książe Półkrwi
+zapisywał notatki w książce od Alchemii
+[zadanie]
+7.Zapisywać filmiki w sensie, że jakieś fragmenty filmkiku z programowania, który nie rozumiem to potem zapisać w notatiku co i jak
+zapytać potem Rafała
+8. Ogólnie zapisywać notatki. Jak nie rozumiem metody to tak samo zapisywać sobie z definicją.
+9. Wytłumacz append na liście ile daje parametrów (chat gpt)
+-Odpowiedź: Jeden parametr
+
+10. ZAPAMIĘTAJ PARAMETRY!!!!!!! powstawowoc(x, y) to ten x i y to są parametry
+
+
+
+-----
+isdigit() - Metoda zwraca wartość True, jeśli wszystkie znaki są cyframi, w przeciwnym razie False. Wykładniki, takie jak ², również są uznawane za cyfry. 
+
+append - Dodaje element na końcu listy : 1 parametr
+
+insert - Dodaje element w określonej pozycji : 2 parametry

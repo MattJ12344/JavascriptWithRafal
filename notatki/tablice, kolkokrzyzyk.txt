@@ -1,0 +1,7 @@
+
+//1.gracze x lub o, że x zaczyna pierwszy gracz, który ma x
+//2.kółka i krzyżyków, nie mogą się na siebie nakładać, nie mają wyznaczonych miejsc
+//3.różne wygrane, jak x zacznaczył w pole gracz to potem kółko zazncza jedno pole a potem z nowu x itd.
+//4.Ogłoszenie zwycięscy.
+
+

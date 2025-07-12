@@ -1,0 +1,74 @@
+Zapisane sobie jeszcze definicje, ale tutaj są też nazwy filmików do srotwania i bigO
+
+Sortowanie:
+Sorting: Bubble, Insertion, Selection, Merge, Quick, Counting Sort - DSA Course in Python Lecture 10 - Greg Hogg
+
+ 1. Bubble Sort (Sortowanie bąbelkowe)
+Porównuje sąsiednie liczby i zamienia je miejscami, jeśli są w złej kolejności.
+
+Powtarza to wiele razy, aż cała lista będzie posortowana.
+
+Największe liczby "wypływają" na koniec, jak bąbelki
+
+ 2. Insertion Sort (Sortowanie przez wstawianie)
+Przechodzi przez listę i wstawia każdy element w odpowiednie miejsce w posortowanej części listy (jak układanie kart w ręku).
+
+Przesuwa elementy w lewo, aż znajdzie dobre miejsce.
+
+ 3. Selection Sort (Sortowanie przez wybieranie)
+Znajduje najmniejszy element i zamienia go z pierwszym.
+
+Potem szuka kolejnego najmniejszego i zamienia z drugim itd.
+
+Wybiera kolejne minimum.
+
+4.Merge Sort (Sortowanie przez scalanie)
+Dzieli listę na pół, aż zostaną pojedyncze elementy.
+
+Potem łączy je z powrotem w posortowane pary.
+
+Sortuje przy łączeniu.
+
+5. Quick Sort (Szybkie sortowanie)
+Wybiera jeden element jako pivot (np. środkowy).
+
+Dzieli listę: mniejsze liczby idą na lewo, większe na prawo.
+
+Sortuje obie strony osobno.
+
+ 6. Counting Sort (Sortowanie przez zliczanie)
+Zlicza ile razy występuje każda liczba.
+
+Potem odtwarza listę według liczby wystąpień.
+
+Działa tylko na liczbach całkowitych o ograniczonym zakresie.
+
+----------------------------------------------------
+
+O notacjach
+
+Big-O Notation - For Coding Interviews - NeetCode
+
+ Big-O Notation – definicja i wyjaśnienie (po polsku)
+🔹 Definicja:
+Big-O notation (notacja dużego O) to sposób opisywania złożoności obliczeniowej algorytmu, czyli jak szybko rośnie czas wykonania lub zużycie pamięci algorytmu w zależności od wielkości danych wejściowych (nazywanej często n).
+
+Big-O skupia się na najgorszym przypadku (worst-case scenario) i ignoruje mniej istotne szczegóły (np. stałe mnożniki, mniejsze składniki).
+
+🔹 Po co się używa Big-O?
+Żeby porównać algorytmy.
+
+Żeby zrozumieć, jak algorytm będzie się zachowywał przy bardzo dużych danych.
+
+Żeby wybrać efektywny sposób rozwiązania problemu.
+
+
+| Notacja    | Nazwa                 | Przykład działania                 | Wydajność            |
+| ---------- | --------------------- | ---------------------------------- | -------------------- |
+| O(1)       | Stała                 | Dostęp do elementu w tablicy       | ✅ Bardzo szybkie     |
+| O(log n)   | Logarytmiczna         | Przeszukiwanie binarne             | ✅ Szybkie            |
+| O(n)       | Liniowa               | Przejście przez listę              | ⚠️ Średnie           |
+| O(n log n) | Liniowo-logarytmiczna | Sortowanie szybkie (quicksort)     | ⚠️ Średnie           |
+| O(n²)      | Kwadratowa            | Sortowanie bąbelkowe (bubble sort) | ❌ Wolne              |
+| O(2ⁿ)      | wykładnicza           | Rekurencja w problemie plecakowym  | ❌ Bardzo wolne       |
+| O(n!)      | silnia                | Permutacje pełne                   | ❌ Ekstremalnie wolne |

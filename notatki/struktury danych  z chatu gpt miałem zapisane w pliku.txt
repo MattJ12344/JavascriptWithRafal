@@ -1,0 +1,99 @@
+Date structors - struktura danych
+Struktury danych to sposoby organizowania i przechowywania danych w pamięci komputera, tak aby można było je efektywnie wykorzystywać – przeszukiwać, modyfikować, dodawać i usuwać. Używa się ich w programowaniu do zarządzania danymi w logiczny i uporządkowany sposób.
+
+Poniżej przedstawiam najważniejsze typy struktur danych oraz ich definicje:
+
+🔹 1. Tablica (Array)
+Definicja:
+Tablica to uporządkowany zbiór elementów tego samego typu, przechowywanych w sąsiednich komórkach pamięci. Każdy element ma przypisany indeks (zwykle liczbowy, zaczynający się od 0).
+
+✅ Zalety: szybki dostęp do elementów przez indeks.
+❌ Wady: stała wielkość – trudno dodawać/usuwać elementy.
+
+🔹 2. Lista (List / Linked List)
+Definicja:
+Lista to sekwencja elementów (węzłów), gdzie każdy węzeł zawiera wartość i wskaźnik do kolejnego (a w liście dwukierunkowej także do poprzedniego).
+
+📌 Typy:
+
+Lista jednokierunkowa
+
+Lista dwukierunkowa
+
+Lista cykliczna
+
+✅ Zalety: łatwe dodawanie/usuwanie elementów.
+❌ Wady: wolny dostęp losowy.
+
+🔹 3. Stos (Stack)
+Definicja:
+Stos działa na zasadzie LIFO (Last In, First Out) – ostatni element dodany, jest pierwszy usuwany.
+
+📌 Operacje:
+
+push() – dodaje element na szczyt
+
+pop() – usuwa element ze szczytu
+
+✅ Zastosowanie: wywołania funkcji, odwracanie ciągów, parsowanie wyrażeń.
+
+🔹 4. Kolejka (Queue)
+Definicja:
+Kolejka działa na zasadzie FIFO (First In, First Out) – pierwszy element dodany, jest pierwszy usuwany.
+
+📌 Typy:
+
+Zwykła kolejka
+
+Kolejka priorytetowa
+
+Kolejka cykliczna
+
+Deque (kolejka dwustronna)
+
+🔹 5. Zbiór (Set)
+Definicja:
+Zbiór to nieuporządkowana kolekcja unikalnych elementów – nie dopuszcza duplikatów.
+
+✅ Zastosowanie: sprawdzanie przynależności, operacje matematyczne (przecięcie, suma).
+
+🔹 6. Mapa / Słownik (Map / Dictionary / HashMap)
+Definicja:
+Struktura przechowująca pary klucz-wartość. Każdemu kluczowi przypisana jest jedna wartość.
+
+✅ Przykład: { "imię": "Anna", "wiek": 30 }
+✅ Szybki dostęp po kluczu.
+
+🔹 7. Drzewo (Tree)
+Definicja:
+Hierarchiczna struktura danych, w której każdy węzeł ma "dzieci". Zaczyna się od korzenia.
+
+📌 Typy:
+
+Drzewo binarne
+
+Drzewo BST (binarne drzewo wyszukiwań)
+
+Drzewo AVL (zrównoważone)
+
+Drzewo trie (prefiksowe)
+
+✅ Używane np. w wyszukiwaniu, sortowaniu, systemach plików.
+
+🔹 8. Graf (Graph)
+Definicja:
+Zbiór węzłów (wierzchołków) i połączeń między nimi (krawędzi). Może być skierowany lub nieskierowany.
+
+📌 Reprezentacja:
+
+lista sąsiedztwa
+
+macierz sąsiedztwa
+
+✅ Zastosowania: sieci komputerowe, mapy, relacje.
+
+🔹 9. Kopa (Heap)
+Definicja:
+Drzewo binarne spełniające warunek kopca – każdy rodzic ma wartość większą/mniejszą od dzieci (max-heap / min-heap).
+
+✅ Używana np. w algorytmie Dijkstry i sortowaniu przez kopcowanie (heap sort).

@@ -1,0 +1,19 @@
+1.Puste linie, czyli to co ma być związane ze sobą i widać to po kodzie to ma być osobno od innej linijki, która nie pasuje
+
+2. Etrapez jako dalsza część po matemaksie, czyli po matematyce po studiach
+
+3.wszystkie kody zmienić typy
+
+4.zawsze typy zapisywać do leetcode’a sprawdzić, czy można zmienić nazwę już poddaną przez leetcode
+
+5.zmienić nazwy w moim kodowaniu, czyli inaczej nazwać zmienne czy inne parametry, nie jedną literówką, żeby wiedzieć co to
+
+6.TAK skrót do leetcod’a to F2 na zmiany nazwy zmiennej
+
+7.Nie jestem na górze na tym schodku tylko niżej, bo zrobiłem wielkie pomyłki
+
+8.Kółko i krzyżyk za niedługo będzie robiony z Rafałem w języku python i po nim będę robił Snake w pythonie
+
+9.Powtórzyć sobie jeszcze raz niektóre leetcode’y, jak mam jakiś problem ze zrozumieniem to oglądnąć sobie leetocode’y na yt
+
+10.powtórzyć sobie podstawy z pythona tak, aby sobie utrwalić je i nie zawieść Rafała (zawsze zawodze...)

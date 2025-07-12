@@ -1,0 +1,53 @@
+for _ in  - iteruje się, ale nie użyjemy wartości przez underscore w forze,
+a jak jest for i in lub for j in - to będzie się iterować, ale będziemy używać tych wartości
+
+_ - underscore
+
+variable - zmienna
+
+
+Jestem w debugerze jak jest żółta, czyli informacja co ma się wykonać, ale nie zobaczymy od razu co wykonało, bo jak wścisnę 
+F11 to wtedy ma się wykonywać i zobaczymy co pozmieniało
+
+F11 w debugrze - chodzi na krok po kroku po kodzie pokazując co się robi
+F10 - przeskakuje nad różnymi funkcjami bez robienia krok po kroku
+
+append - dodaje ostatnią wartość, ma jeden parametr 
+insert - wstawia określoną wartość w określonym miejscu, ma  2 parametry (index, parametr jakiś tam)
+
+len - przeliczanie czegoś na długość stringa, listę itd.
+snake[len(snake) - 1] - przelicza odejmując o jedno w dół liczbę 
+
+remove - usuwa pierwszy element o określonej wartości
+
+pop - usuwa element w określonej pozycji jeszcze do popa Opcjonalnie. Liczba określająca pozycję elementu, który chcesz usunąć. Wartość domyślna to -1, która zwraca ostatni element.
+
+assert - testowanie, sprawdzanie czy zadanie jest prawidłowe
+-----------------------------------
+Jakie metody dać do snake bez random:
+
+- [ ] - puste pola żeby było równe sobie listy
+
+- zamiast X zamienić to na liczby , czyli X na 1, a jak zje owocka to 12, a jak zje kolejnego owocka to wtedy 123
+
+- powiększyć snake ze zmianę planszy:
+  ♥ od 3x3 do 4x4 snake X = 1
+  ♥ od 5x5 do 9x9 snake XX = 12
+  ♥ od 10x10 do 20x20 snake XXX = 123
+
+- dać ścianę na środek
+
+- przechodzi przez ścianę i nie ginie 
+
+
+-------
+
+if : <- read
+jakaś czynność, która ma się wykonać: <- write
+
+^ baw się w detektywa przez debuggowanie patrząc na te write'y
+
+------
+
+/ dlaczego to jest w tym skrypcie - To sposób Pythona (zwłaszcza w metodach wbudowanych, takich jak list.append) na wymuszenie prostoty i przejrzystości. Metoda list.append() została zaprojektowana tak, aby przyjmować pojedynczy argument pozycyjny. Nie ma potrzeby zezwalania na użycie słów kluczowych, takich jak append(object="foo"). Sprawia to również, że wywołanie funkcji jest szybsze, ponieważ argumenty pozycyjne są przetwarzane szybciej niż argumenty słów kluczowych.
+

@@ -1,0 +1,20 @@
+<TO JEST TO SAMO CO W SCREENIE>
+1. Ważniejsze niż samo kodowanie jest zrozumienie zadania, rozpisania je sobie na kartce/notatniku/paintcie/w komentarzu w kodzie
+2. Jak piszesz komentarze gdzie rozpisujesz sobie zadanie warto to zrobic na samym dole pliku
+3. Leetcode zazwyczaj podaje 2 przykłady z kodu z input i spodziewanym outputem, warto sobie dopisać co najmniej 1, a lepiej 2 swoje własne przykłady, jako część próby zrozumienia zadania
+4. Warto zadać sobie pytanie: co jeśli input będzie = 0? albo = ””? albo = []? (w zależności od typu)
+5. Zadania z leetcoda da się przedstawić matematycznie i od tego trzeba zacząć - czy w ogóle każde inne zadanie programistyczne - programowanie to tak naprawdę tylko zautomatyzowanie tej matematyki - np. w zadaniu z trucizną teemo, widziałeś jak matematycznie dało się to rozpisać na osi czasu, a później programistycznie zautomatyzowaliśmy to mogliśmy obliczyć przykład gdzie duration = 1000000, co w paice byłoby cieżko narysować
+6. Struktury danych (data structures) czyli np. set, dictionary, queue, stack itp. są często przydatne do rozwiązania jakiegoś zadania z leetcode. 
+“Rozkminienie” na kartce jest ważne, bo może ci pomóc zauważyć jaka struktura danych przyda się w danym zadaniu. Jak można było dojść do tego w zadaniu z teemo? Kiedy rozpisywaliśmy sobie na osi czasu nasze zadanie, to widzieliśmy, że jest tam pewien zbiór liczb, które się na siebie nakładają i nie powinny być policzone.
+“na siebie nakładają i nie powinny być policzone”
+“na siebie nakładają i nie powinny być policzone”
+“na siebie nakładają i nie powinny być policzone”
+Powtarzam 3 razy, bo tu kryje się odpowiedź, że do tego przyda się set - który jest strukturą danych, która nie przechowuje zduplikowanych danych.
+7. Warto tak sobie na “kartce’ rozpisać kółko i krzyżyk
+8. Jak puszczasz swój program to na takich inputach, które już masz “przerobione” na “kartce” i wiesz na pewno jakie będziesz miał outputy
+
+Proszę dalej o dużo nauki.
+Jeśli pracujesz nad kodem to proszę o częste comitowanie, za każdym razem, jak zrobiłeś coś sensownego. Może być nawet co 30 min, na pewno 1 comit na dzień, to mało.
+
+Zadania do zrobienia:
+01. Dodać do wszystkich programów, które masz na github, asserty z 4 przykładami, ale więcej=lepiej - ale pomyśl o “warunkach brzegowych” czyli mówiąc prościej skrajnych wartościach inputu np. jak w teemo duration = 0, duration = -1, duration = 1000000 itp

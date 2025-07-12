@@ -1,0 +1,14 @@
+fifo - first in, first out - oznacza "pierwsze weszło, pierwsze wyszło", czyli towary, które najwcześniej trafiły do magazynu, są wydawane jako pierwsze
+
+lifo -last in, first out - ostatnie weszło, pierwsze wyszło", gdzie towary, które ostatnio trafiły do magazynu, są wydawane jako pierwsze. 
+
+(fifo)deque - kolejka dwustronna z jednej i z drugiej strony można wyciągnąć
+
+stack(lifo)
+
+bfs(breadth-first search) - Przeszukiwanie wszerz – jeden z najprostszych algorytmów przeszukiwania grafu. Przechodzenie grafu rozpoczyna się od zadanego wierzchołka s i polega na odwiedzeniu wszystkich osiągalnych z niego wierzchołków.
+
+
+leetcode - oglądać, pobrać sobie na telefon
+
+github - kółko i krzyżyk robić w wolnym czasie
