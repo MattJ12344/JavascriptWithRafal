@@ -123,7 +123,10 @@ class Snake:
             
     def odswiezPlansze(self) -> None:
         
-        self.wygenerujPlansze()
+        for i in range(self.rozmiar):
+            for j in range(self.rozmiar):
+                if self.plansza[i][j] in ['X', 'O']:
+                    self.plansza[i][j] = ' '
         
         for x, y in self.owoce:
             self.plansza[x][y] = 'O'
@@ -136,13 +139,14 @@ class Snake:
         wynik = ""
         
         for wiersz in self.plansza:
+            
             for pole in wiersz:
                 
                 if pole == ' ':
-                    wynik = wynik + "[]"
+                    wynik = wynik + "[ ]"
                     
                 else:
-                    wynik = wynik + "[" + pole + "]"
+                    wynik = wynik + f"[{pole}]"
                     
             wynik = wynik + "\n"
             

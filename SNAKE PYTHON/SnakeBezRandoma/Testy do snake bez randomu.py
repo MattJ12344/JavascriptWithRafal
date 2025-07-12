@@ -11,11 +11,11 @@ def test1():
     waz1.postawOwoc(0, 2)
 
     poczatkowaPlansza1: str = (
-        "[X][X][O][][]\n"
-        "[][][][][]\n"
-        "[][][][][]\n"
-        "[][][][][]\n"
-        "[][][][][]\n"
+        "[X][X][O][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
         
     )
 
@@ -28,11 +28,11 @@ def test1():
     waz1.wykonajRuchy(ruchyDoWykonania)
 
     spodziewanaPlansza1: str = (
-        "[][X][X][X][]\n"
-        "[][][][][]\n"
-        "[][][][][]\n"
-        "[][][][][]\n"
-        "[][][][][]\n"
+        "[ ][X][X][X][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
     )
 
     print("waz1.planszaNaString() \n", waz1.planszaNaString())
@@ -56,11 +56,11 @@ def test2():
 
 
     poczatkowaPlansza2: str = (
-        "[X][X][][][]\n"
-        "[][][][][]\n"
-        "[O][O][][][]\n"
-        "[][][][][]\n"
-        "[][][][][]\n"
+        "[X][X][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
+        "[O][O][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
     )
 
     assert waz2.planszaNaString() == poczatkowaPlansza2
@@ -69,11 +69,11 @@ def test2():
     waz2.wykonajRuchy(ruchyDoWykonania2)
 
     spodziewanaPlansza2: str = (
-        "[][X][][][]\n"
-        "[][X][][][]\n"
-        "[X][X][][][]\n"
-        "[][][][][]\n"
-        "[][][][][]\n"
+        "[ ][X][ ][ ][ ]\n"
+        "[ ][X][ ][ ][ ]\n"
+        "[X][X][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
     )
 
 
@@ -102,11 +102,11 @@ def test3():
 
 
     poczatkowaPlansza3: str = (
-        "[X][X][][][]\n"
-        "[][][][O][]\n"
-        "[][O][][][]\n"
-        "[][][][][O]\n"
-        "[O][][][][]\n"
+        "[X][X][ ][ ][ ]\n"
+        "[ ][ ][ ][O][ ]\n"
+        "[ ][O][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][O]\n"
+        "[O][ ][ ][ ][ ]\n"
     )
     
     # print("waz3.planszaNaString(): \n", waz3.planszaNaString())
@@ -120,10 +120,10 @@ def test3():
     waz3.wykonajRuchy(ruchyDoWykonania3)
 
     spodziewanaPlansza3: str = (
-        "[][][][][]\n"
-        "[][][][][]\n"
-        "[][][][][]\n"
-        "[][][][][X]\n"
+        "[ ][ ][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][X]\n"
         "[X][X][X][X][X]\n"
     )
 
@@ -149,11 +149,11 @@ def test4():
 
 
     poczatkowaPlansza4: str = (
-        "[X][X][][][]\n"
-        "[][][O][][]\n"
-        "[][][][][]\n"
-        "[][][][][]\n"
-        "[][][][][]\n"
+        "[X][X][ ][ ][ ]\n"
+        "[ ][ ][O][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
     )
 
     assert waz4.planszaNaString() == poczatkowaPlansza4
@@ -162,11 +162,11 @@ def test4():
     waz4.wykonajRuchy(ruchyDoWykonania4)
 
     spodziewanaPlansza4: str = (
-        "[][][][Z][Z]\n"
-        "[][][O][][]\n"
-        "[][][][][]\n"
-        "[][][][][]\n"
-        "[][][][][]\n"
+        "[ ][ ][ ][Z][Z]\n"
+        "[ ][ ][O][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
     )
 
 
@@ -192,11 +192,11 @@ def test5():
     waz5.postawOwoc(1, 4)
 
     poczatkowaPlansza5: str = (
-        "[X][X][O][O][]\n"
-        "[][][][][O]\n"
-        "[][][][][]\n"
-        "[][][][][]\n"
-        "[][][][][]\n"
+        "[X][X][O][O][ ]\n"
+        "[ ][ ][ ][ ][O]\n"
+        "[ ][ ][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
     )
 
     assert waz5.planszaNaString() == poczatkowaPlansza5
@@ -205,11 +205,11 @@ def test5():
     waz5.wykonajRuchy(ruchyDoWykonania5)
 
     spodziewanaPlansza5: str = (
-        "[][][Z][Z][Z]\n"
-        "[][][][Z][Z]\n"
-        "[][][][][]\n"
-        "[][][][][]\n"
-        "[][][][][]\n"
+        "[ ][ ][Z][Z][Z]\n"
+        "[ ][ ][ ][Z][Z]\n"
+        "[ ][ ][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
+        "[ ][ ][ ][ ][ ]\n"
     )
 
     print(waz5.planszaNaString())
