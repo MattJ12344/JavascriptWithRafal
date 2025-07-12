@@ -12,7 +12,7 @@ def test1():
     waz1.postawOwoc(0, 2)
 
     poczatkowaPlansza1: str = (
-        "[X][ ][O]\n"
+        "[1][ ][O]\n"
         "[ ][ ][ ]\n"
         "[ ][ ][ ]\n"
     )
@@ -26,7 +26,7 @@ def test1():
     waz1.wykonajRuchy(ruchyDoWykonania)
 
     spodziewanaPlansza1: str = (
-        "[ ][X][X]\n"
+        "[ ][2][1]\n"
         "[ ][ ][ ]\n"
         "[ ][ ][ ]\n"
     )
@@ -52,7 +52,7 @@ def test2():
 
 
     poczatkowaPlansza2: str = (
-        "[X][ ][ ]\n"
+        "[1][ ][ ]\n"
         "[ ][ ][ ]\n"
         "[O][O][ ]\n"
     )
@@ -64,8 +64,8 @@ def test2():
 
     spodziewanaPlansza2: str = (
         "[ ][ ][ ]\n"
-        "[X][ ][ ]\n"
-        "[X][X][ ]\n"
+        "[3][ ][ ]\n"
+        "[2][1][ ]\n"
     )
 
 
@@ -94,7 +94,7 @@ def test3():
 
 
     poczatkowaPlansza3: str = (
-        "[X][ ][ ]\n"
+        "[1][ ][ ]\n"
         "[O][O][O]\n"
         "[O][ ][ ]\n"
     )
@@ -106,8 +106,8 @@ def test3():
 
     spodziewanaPlansza3: str = (
         "[ ][ ][ ]\n"
-        "[X][X][ ]\n"
-        "[X][X][X]\n"
+        "[2][1][ ]\n"
+        "[3][4][5]\n"
     )
 
 
@@ -132,7 +132,7 @@ def test4():
 
 
     poczatkowaPlansza4: str = (
-        "[X][ ][ ]\n"
+        "[1][ ][ ]\n"
         "[ ][ ][O]\n"
         "[ ][ ][ ]\n"
     )
@@ -171,7 +171,7 @@ def test5():
     waz5.postawOwoc(1, 2)
 
     poczatkowaPlansza5: str = (
-        "[X][O][O]\n"
+        "[1][O][O]\n"
         "[ ][ ][O]\n"
         "[ ][ ][ ]\n"
     )

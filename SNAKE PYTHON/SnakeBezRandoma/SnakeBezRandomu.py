@@ -125,14 +125,14 @@ class Snake:
         
         for i in range(self.rozmiar):
             for j in range(self.rozmiar):
-                if self.plansza[i][j] in ['X', 'O']:
+                if self.plansza[i][j].isdigit() or self.plansza == 'O':
                     self.plansza[i][j] = ' '
         
         for x, y in self.owoce:
             self.plansza[x][y] = 'O'
         
-        for x, y in self.snake:
-            self.plansza[x][y] = 'X'    
+        for i, (x, y) in enumerate(reversed(self.snake)):
+            self.plansza[x][y] = str(i + 1)    
     
     
     def planszaNaString(self) -> str:
