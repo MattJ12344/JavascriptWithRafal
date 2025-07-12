@@ -4,8 +4,8 @@ from typing import List
 class Snake:
     
     # Konstruktor
-    def  __init__(self) -> None:
-        self.rozmiar: int = 5
+    def  __init__(self, rozmiar:int ) -> None:
+        self.rozmiar = rozmiar
         self.plansza: List[List[str]] = []
         self.snake: List[List[int]] = []
         self.owoce: List[List[int]] = []
