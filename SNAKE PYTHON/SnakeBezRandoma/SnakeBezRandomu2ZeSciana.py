@@ -34,10 +34,10 @@ class Snake:
             dlugosc:int  = 2
             
         elif 10 <= self.rozmiar <= 20:
-            dlugosc = 3
+            dlugosc:int = 3
             
         else:
-            dlugosc = 1
+            dlugosc:int = 1
             
         self.snake = []
         
@@ -51,7 +51,7 @@ class Snake:
         self.odswiezPlansze()
             
     def dodajPrzeszkodeNaSrodek(self) -> None:
-        srodek = self.rozmiar // 2
+        srodek:int = self.rozmiar // 2
         self.przeszkody.append([srodek, srodek])
         self.plansza[srodek][srodek] = '#'         
   
@@ -67,34 +67,46 @@ class Snake:
     def dodajPunkty(self) -> None:
         self.punkty += 1
         
+    def wsadToKierunek(self, kierunek:str) -> List[int]:
+        
+        if kierunek == 'w' or kierunek == 'W':
+                x:int = -1 
+                y:int = 0
+                
+        elif kierunek == 's' or kierunek == 'S':
+                x:int = 1 
+                y:int = 0
+                
+        elif kierunek == 'a' or kierunek == 'A':
+                x:int = 0 
+                y:int = -1
+            
+        elif kierunek == 'd' or kierunek == 'D':
+                x:int = 0 
+                y:int = 1
+                
+        else:
+            raise TypeError("Nieprawidłowa literka ze wsadToKierunek wpisz wsad", kierunek)
+        
+        glowa: List[int]=  self.snake[len(self.snake) - 1]
+            
+        glowaX = glowa[0]
+        glowaY = glowa[1]
+            
+        nowyX:int = (glowaX + x) % self.rozmiar
+        nowyY:int = (glowaY + y) % self.rozmiar
+        
+        return [nowyX, nowyY]
+        
     def wykonajRuchy(self, ruchyDoWykonania: List[str]) -> None:
         
         for kierunek in ruchyDoWykonania:
             
-            if kierunek == 'w' or kierunek == 'W':
-                x = -1 
-                y = 0
-                
-            elif kierunek == 's' or kierunek == 'S':
-                x = 1 
-                y = 0
-                
-            elif kierunek == 'a' or kierunek == 'A':
-                x = 0 
-                y = -1
+             
+            kierunki:List[int] = self.wsadToKierunek(kierunek)
             
-            elif kierunek == 'd' or kierunek == 'D':
-                x = 0 
-                y = 1
-                
-            else:
-                continue
-            
-            glowaX, glowaY = self.snake[len(self.snake) - 1]
-            
-            nowyX = (glowaX + x) % self.rozmiar
-            nowyY = (glowaY + y) % self.rozmiar
-            
+            nowyX:int = kierunki[0]
+            nowyY:int = kierunki[1]
             
             #szuka czy napotka czesc ciala i wtedy ma się zakonczyc gre
             if [nowyX, nowyY] in self.snake: 
@@ -121,7 +133,8 @@ class Snake:
     
     def oznaczZakonczonaGre(self) -> None:
         for segment in self.snake:
-            x, y = segment
+            x: int = segment[0]
+            y: int = segment[1]
             self.plansza[x][y] = 'Z'   
             
             
@@ -144,7 +157,7 @@ class Snake:
     
     
     def planszaNaString(self) -> str:
-        wynik = ""
+        wynik:str = ""
         
         for wiersz in self.plansza:
             
