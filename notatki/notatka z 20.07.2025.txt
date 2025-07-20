@@ -1,0 +1,25 @@
+Notatka z 20.07.2025r.
+
+Continue i break nie wchodzą wewnętrzną metodę, która nie ma pętli i trzeba usunąć wtedy break i continue i zastąpić je czymś innym
+
+Return bez wartości, który jest wewnętrznej metodzie nie zakończy metody zewnętrznej tylko przejdzie dalej do następnych podpunktów
+
+Starać się, aby metody miały mało kodu, żeby podzielić w metodzie na wewnętrzne metody, które mają jakiś wspólne parametry
+
+Zrobić w metodzie wykonaj ruchy wewnętrzne metody z których wyciąga wartości : (zadanie)
+- Metoda wewnętrzna wsadtokierunek(kierunek)
+
+Dać typy do każdego zmiennej w snake (zadanie)
+
+Kolorki - oznaczają coś, czyli zielony oznacza klasy, a żółty metody
+
+Zip to jest mapa, która daje 1 z 1, 2 z 2, ustawia elementy w pary ze sobą a jak będzie więcej w jednej liście to wtedy ta ostatnia nie będzie łączona
+
+Alien dictonary:
+a[:8] - stringa zamienia na listę stringów, gdzie przelicza do 8 liczb, a ma hello więc wpiszę hello
+
+:8 - do tego elementu - <0, 8>
+
+8: - od jakiegoś elementu do końca - <8, ∞>
+
+If czytają od lewej od prawej, więc czyta od lewą
