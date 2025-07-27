@@ -1,0 +1,18 @@
+Zadanie dom:
+zrobić w snake tego inputa
+
+----------------------------
+
+rozpisanie sobie kroków, jak ma się zrobić jakaś dana metoda. Scenariusz sobie pisać, jak ma się to wykonywać.
+
+
+Dla kiedy for:
+- jeśli wiemy ile chcemy razy wykonać, to znamy liczbę wykonania(znamy liczbę elementów, które chcemy iterować) - to wtedy for
+
+
+Dla kiedy while:
+- jeśli wiemy, że ma się wykonać ileś razy, ale nie znamy liczby (czyli, że ma się robić nieskończenie wiele)- to wtedy while
+
+- While True:
+♣True <--- jakaś zmienna może być tutaj, jakie działanie
+♣ True <---- nieskończenie wiele się robi to działanie

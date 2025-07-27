@@ -1,0 +1,7 @@
+Najpierw sam zrób, a debug na końcu, wygooglować sobie co nie umiem
+
+
+balanced binary tree
+baseball game
+binary search
+binary tree level order travesal

@@ -1,0 +1,9 @@
+nadawać typy zmienne nie ważne, gdzie je wywołujemy.
+
+jeśli są nie są sobie równe to wyrównaj je ze sobą. 	
+
+Zawsze znajdą  się różne sposoby na ułatwienie kodu
+
+Jeśli podczas debbug'a  zrobię sobie zmienną, która przechowuje pewne działanie to zobaczę, co mi wywali za typ lub rozwiązanie tego działania
+
+zawsze klasy/funkcje zaimplementowane da się zmienić na swoje własne, zobaczyć czy będzie to działało
