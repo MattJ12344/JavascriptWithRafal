@@ -49,6 +49,13 @@ class Snake:
                 self.snake.append([nowyX, nowyY])
         
         self.odswiezPlansze()
+
+    def zczytywanieZTerminala(self) ->None:
+        while self.koniecGry == False:
+            print("Wprowadz kierunek (w/W)(s/S)(a/A)(d/D): ")
+            krok:str = input().strip()
+            self.wykonajRuchy(krok)
+            print(self.planszaNaString())
             
     def dodajPrzeszkodeNaSrodek(self) -> None:
         srodek:int = self.rozmiar // 2
@@ -86,7 +93,7 @@ class Snake:
                 y:int = 1
                 
         else:
-            raise TypeError("Nieprawidłowa literka ze wsadToKierunek wpisz wsad", kierunek)
+            raise Exception("Nieprawidłowa literka ze wsadToKierunek wpisz wsad", kierunek)
         
         glowa: List[int]=  self.snake[len(self.snake) - 1]
             
@@ -98,7 +105,7 @@ class Snake:
         
         return [nowyX, nowyY]
         
-    def wykonajRuchy(self, ruchyDoWykonania: List[str]) -> None:
+    def wykonajRuchy(self, ruchyDoWykonania: str) -> None:
         
         for kierunek in ruchyDoWykonania:
             

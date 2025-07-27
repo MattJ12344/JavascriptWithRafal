@@ -75,5 +75,41 @@ def test2():
     assert gra.ileZjedzonychOwockow() == 1
 
 
-test1()
-test2()
+def test3():
+    gra = Snake(3)
+    gra.wygenerujPlansze()
+    gra.wygenerujSnake(0, 0)
+    gra.dodajPrzeszkodeNaSrodek()
+    gra.postawOwoc(0, 2)
+
+    poczatkowaPlansza1: str = (
+        "[1][ ][O]\n"
+        "[ ][#][ ]\n"
+        "[ ][ ][ ]\n"
+
+    )
+
+    # print(gra.planszaNaString())
+    # print(poczatkowaPlansza1)
+
+    assert gra.planszaNaString() == poczatkowaPlansza1
+
+
+    gra.zczytywanieZTerminala()d
+
+    spodziewanaPlansza1: str = (
+        "[Z][ ][ ]\n"
+        "[Z][#][ ]\n"
+        "[ ][ ][ ]\n"
+    )
+
+    print("gra.planszaNaString() \n", gra.planszaNaString())
+    print("spodziewanaPlansza1 \n", spodziewanaPlansza1)
+
+    assert gra.planszaNaString() == spodziewanaPlansza1, "Planasza zgadza się z spodziewaną"
+    assert gra.ileZjedzonychOwockow() == 1
+
+
+# test1()
+# test2()
+test3()
