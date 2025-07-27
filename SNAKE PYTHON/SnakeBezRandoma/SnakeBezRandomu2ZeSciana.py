@@ -60,8 +60,25 @@ class Snake:
     def dodajPrzeszkodeNaSrodek(self) -> None:
         srodek:int = self.rozmiar // 2
         self.przeszkody.append([srodek, srodek])
-        self.plansza[srodek][srodek] = '#'         
-  
+        self.plansza[srodek][srodek] = '#'
+
+    def postawPrzeszkody(self, x:int, y:int) -> None:
+
+        if self.rozmiar < 5:
+            print("Plansza za mala - przeszkody dozwolone od rozmiaru planszy 5x5")
+            return
+
+        if [x, y] in self.przeszkody:
+            print(f"Przeszkoda juz istnieje na tym polu ({x}, {y})")
+            return
+
+        if [x, y] in self.przeszkody:
+            print(f"Tu jest waz. Nie mozna wstawic przeszkody ({x}, {y})")
+            return
+
+        self.przeszkody.append([x, y])
+        self.plansza[x][y] = '#'
+
         
     def postawOwoc(self, x:int, y:int) -> None:
         if [x, y] not in self.przeszkody:
