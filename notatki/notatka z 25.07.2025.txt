@@ -1,6 +1,6 @@
 nadawać typy zmienne nie ważne, gdzie je wywołujemy.
 
-jeśli są nie są sobie równe to wyrównaj je ze sobą. 	
+jeśli nie są sobie równe to wyrównaj je ze sobą. 	
 
 Zawsze znajdą  się różne sposoby na ułatwienie kodu
 

@@ -1,10 +1,10 @@
-1.Zrobić enumarate jako metodę tak samo jak było z zipem: 
+1.Zrobić enumarate jako metodę tak samo jak było z zipem: ✔️
 Krok po kroku
-I małe asserty
-2.kolejne case'y dla zipa, czyli parę assertów:
-3.Dodać test case dla enumarate i zipa, czyli dwuwymaiarowa tablica i trzywymiarowa tablica
-4.Robić quizy te we w3school'ach
-5.Metoda input, która ma wysyłać informacje do wsadToKierunek i to my wpisujemy w terminalu te kroki I wysyła informacje jaki kierunek wybraliśmy
-6.Do generowania snake mam zrobić, że na podstwie rozmiaru powiększać snake ze jakiegoś wzoru (nieskończenie może być)
-7.Przedzkoda ma być w różnych miejscach tak jak powstawOwoc i to jako osobna metoda tamtą na środku zostawić
-8.TypeError zmienić na coś innego w sensie klasa typeError, bo wtedy ma wywalić jakiś błąd np. Expetion
+I małe asserty✔️
+2.kolejne case'y dla zipa, czyli parę assertów:✔️
+3.Dodać test case dla enumarate i zipa, czyli dwuwymaiarowa tablica i trzywymiarowa tablica✔️
+4.Robić quizy te we w3school'ach (-)
+5.Metoda input, która ma wysyłać informacje do wsadToKierunek i to my wpisujemy w terminalu te kroki I wysyła informacje jaki kierunek wybraliśmy.✔️
+6.Do generowania snake mam zrobić, że na podstwie rozmiaru powiększać snake z jakiegoś wzoru (nieskończenie może być) (--)
+7.Przedzkoda ma być w różnych miejscach tak jak powstawOwoc i to jako osobna metoda tamtą na środku zostawić (-)
+8.TypeError zmienić na coś innego w sensie klasa typeError, bo wtedy ma wywalić jakiś błąd np. Expetion ✔️
