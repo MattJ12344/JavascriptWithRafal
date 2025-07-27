@@ -54,7 +54,7 @@ class Snake:
         while self.koniecGry == False:
             print("Wprowadz kierunek (w/W)(s/S)(a/A)(d/D): ")
             krok:str = input().strip()
-            self.wykonajRuchy(krok)
+            self.wykonajRuch(krok)
             print(self.planszaNaString())
             
     def dodajPrzeszkodeNaSrodek(self) -> None:
@@ -111,7 +111,7 @@ class Snake:
                 
         else:
             raise Exception("Nieprawidłowa literka ze wsadToKierunek wpisz wsad", kierunek)
-        
+
         glowa: List[int]=  self.snake[len(self.snake) - 1]
             
         glowaX = glowa[0]
@@ -121,12 +121,14 @@ class Snake:
         nowyY:int = (glowaY + y) % self.rozmiar
         
         return [nowyX, nowyY]
+
+    def wykonajRuch(self, ruchDoWykonania: str) -> None:
+        self.wykonajRuchy([ruchDoWykonania])
         
-    def wykonajRuchy(self, ruchyDoWykonania: str) -> None:
+    def wykonajRuchy(self, ruchyDoWykonania: List[str]) -> None:
         
         for kierunek in ruchyDoWykonania:
-            
-             
+
             kierunki:List[int] = self.wsadToKierunek(kierunek)
             
             nowyX:int = kierunki[0]
